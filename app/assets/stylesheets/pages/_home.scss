@@ -1,32 +1,18 @@
 // Specific CSS for your home-page
+// #F5B700
+// #00A1E4
+// #DC0073
+// #89FC00
+
 body {
   background-color: #89FC00;
 }
 
-.main-header {
-  color: #00A1E4;
-  font-size: 30vh;
-  font-weight: 700;
+h1 {
   font-family: 'Quantico';
-  transition: 3s;
+  color: #00A1E4;
 }
 
 a {
   text-decoration: none;
-}
-
-.banner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.main-header:hover {
-  transform: rotateY(360deg);
-  color: #DC0073;
-}
-
-.letter-spin {
-
 }
