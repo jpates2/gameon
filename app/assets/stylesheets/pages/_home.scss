@@ -9,3 +9,14 @@ body {
   font-weight: 700;
   font-family: 'Quantico';
 }
+
+a {
+  text-decoration: none;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
