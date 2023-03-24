@@ -8,6 +8,7 @@ body {
   font-size: 30vh;
   font-weight: 700;
   font-family: 'Quantico';
+  transition: 3s;
 }
 
 a {
@@ -19,4 +20,13 @@ a {
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+
+.main-header:hover {
+  transform: rotateY(360deg);
+  color: #DC0073;
+}
+
+.letter-spin {
+
 }
