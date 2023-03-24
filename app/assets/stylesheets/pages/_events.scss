@@ -1,10 +1,35 @@
 .games-header {
   font-size: 20vh;
   color: #DC0073;
+  animation: fadeIn ease 5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
 }
 
 .games-container {
   display: flex;
+  flex-direction: clumn;
   justify-content: center;
   margin-top: 5vh;
+}
+
+.game-box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  margin-top: 16vh;
+}
+
+.game-box {
+  height: 180px;
+  text-align: center;
+  h3 {
+    font-size: 48px;
+  }
 }
