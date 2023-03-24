@@ -1,1 +1,1 @@
-import { Script } from "./script"
+import { Application } from "./script"

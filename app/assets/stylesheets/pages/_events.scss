@@ -1,7 +1,7 @@
 .games-header {
   font-size: 20vh;
   color: #DC0073;
-  animation: fadeIn ease 5s;
+  animation: fadeIn ease 2s;
 }
 
 @keyframes fadeIn {
@@ -31,5 +31,49 @@
   text-align: center;
   h3 {
     font-size: 48px;
+  }
+}
+
+.game-name:hover {
+  // color: #00A1E4;
+  font-size: 56px;
+  font-weight: 700;
+  transition: font-weight 0.5s;
+}
+
+.animate-pop {
+  animation-duration: 0.5s;
+  animation-fill-mode: backwards;
+  animation-name: animate-pop;
+}
+
+.animate-pop-1 {
+  animation-delay: 1s;
+}
+.animate-pop-2 {
+  animation-delay: 1.5s;
+}
+.animate-pop-3 {
+  animation-delay: 2s;
+}
+.animate-pop-4 {
+  animation-delay: 2.5s;
+}
+.animate-pop-5 {
+  animation-delay: 3s;
+}
+.animate-pop-6 {
+  animation-delay: 3.5s;
+}
+
+@keyframes animate-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
   }
 }
