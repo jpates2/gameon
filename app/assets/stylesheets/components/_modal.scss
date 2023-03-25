@@ -11,6 +11,26 @@
   cursor: pointer;
 }
 
+.game-description {
+  margin-bottom: 48px;
+  margin-top: 32px;
+}
+
+.play-button {
+  color: white;
+  background-color: #DC0073;
+  padding: 16px 32px;
+}
+
+.play-button:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.play-button-container {
+  text-align: center;
+}
+
 .hangman-window {
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
