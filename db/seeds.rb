@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "open-uri"
+
+Game.destroy_all
+
+Game.create!(name: "Hangman")
+Game.create(name: "Flash")
+Game.create(name: "O AND X")
+Game.create(name: "Minesweeper")
+Game.create(name: "Anagram")
+Game.create(name: "Pig")

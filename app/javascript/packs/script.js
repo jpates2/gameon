@@ -1,3 +1,11 @@
+// window.onload = function() {
+//   if(!window.location.hash) {
+//       window.location = window.location + '#loaded';
+//       window.location.reload();
+//   }
+// }
+
+
 const hangmanWindow = document.querySelector(".hangman-window");
 const showHangman = document.querySelector(".show-hangman");
 const closeHangman = document.querySelector(".close-hangman");
@@ -11,6 +19,7 @@ const closeHangmanWindow = function() {
 showHangman.addEventListener("click", function () {
   hangmanWindow.classList.remove("hidden");
   overlayHangman.classList.remove("hidden");
+  console.log("test");
 });
 
 closeHangman.addEventListener("click", closeHangmanWindow);
@@ -152,3 +161,30 @@ document.addEventListener("keydown", function (e) {
     closePigWindow();
   }
 });
+
+
+const playButton = document.querySelectorAll(".play-button");
+
+const closeAllWindow = function() {
+  console.log("play");
+  hangmanWindow.classList.add("hidden");
+  overlayHangman.classList.add("hidden");
+  flashWindow.classList.add("hidden");
+  overlayFlash.classList.add("hidden");
+  oxWindow.classList.add("hidden");
+  overlayOx.classList.add("hidden");
+  mineWindow.classList.add("hidden");
+  overlayMine.classList.add("hidden");
+  anagramWindow.classList.add("hidden");
+  overlayAnagram.classList.add("hidden");
+  pigWindow.classList.add("hidden");
+  overlayPig.classList.add("hidden");
+}
+
+for (let i = 0; i < playButton.length; i++)
+  playButton[i].addEventListener("click", closeAllWindow);
+
+window.addEventListener("popstate", (event) => {
+  // temp fix for reloading page from back button
+  window.location.reload();
+})

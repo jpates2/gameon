@@ -6,5 +6,4 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :games, only: [:show, :index]
-
 end

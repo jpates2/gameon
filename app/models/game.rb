@@ -1,3 +1,3 @@
-class Artwork < ApplicationRecord
-
+class Game < ApplicationRecord
+  validates :name, presence: true
 end
