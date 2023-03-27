@@ -1,30 +1,29 @@
-// window.onload = function() {
-//   if(!window.location.hash) {
-//       window.location = window.location + '#loaded';
-//       window.location.reload();
-//   }
-// }
-
-
 const hangmanWindow = document.querySelector(".hangman-window");
 const showHangman = document.querySelector(".show-hangman");
 const closeHangman = document.querySelector(".close-hangman");
 const overlayHangman = document.querySelector(".overlay-hangman");
+
+const openHangmanWindow = function() {
+  hangmanWindow.classList.remove("hidden");
+  overlayHangman.classList.remove("hidden");
+}
 
 const closeHangmanWindow = function() {
   hangmanWindow.classList.add("hidden");
   overlayHangman.classList.add("hidden");
 };
 
-showHangman.addEventListener("click", function () {
-  hangmanWindow.classList.remove("hidden");
-  overlayHangman.classList.remove("hidden");
-  console.log("test");
-});
+if (showHangman) {
+  showHangman.addEventListener("click", openHangmanWindow);
+}
 
-closeHangman.addEventListener("click", closeHangmanWindow);
+if (closeHangman) {
+  closeHangman.addEventListener("click", closeHangmanWindow);
+}
 
-overlayHangman.addEventListener("click", closeHangmanWindow);
+if (overlayHangman) {
+  overlayHangman.addEventListener("click", closeHangmanWindow);
+}
 
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape" && !hangmanWindow.classList.contains("hidden")) {
@@ -43,14 +42,21 @@ const closeFlashWindow = function() {
   overlayFlash.classList.add("hidden");
 };
 
-showFlash.addEventListener("click", function () {
+const openFlashWindow = function() {
   flashWindow.classList.remove("hidden");
   overlayFlash.classList.remove("hidden");
-});
+}
+if (showFlash) {
+  showFlash.addEventListener("click", openHangmanWindow);
+}
 
-closeFlash.addEventListener("click", closeFlashWindow);
+if (closeFlash) {
+  closeFlash.addEventListener("click", closeFlashWindow);
+}
 
+if (overlayFlash) {
 overlayFlash.addEventListener("click", closeFlashWindow);
+}
 
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape" && !flashWindow.classList.contains("hidden")) {
@@ -69,14 +75,22 @@ const closeOxWindow = function() {
   overlayOx.classList.add("hidden");
 };
 
-showOx.addEventListener("click", function () {
+const openOxWindow = function() {
   oxWindow.classList.remove("hidden");
   overlayOx.classList.remove("hidden");
-});
+}
 
-closeOx.addEventListener("click", closeOxWindow);
+if (showOx) {
+  showOx.addEventListener("click", openOxWindow);
+}
 
+if (closeOx) {
+  closeOx.addEventListener("click", closeOxWindow);
+}
+
+if (overlayOx) {
 overlayOx.addEventListener("click", closeOxWindow);
+}
 
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape" && !oxWindow.classList.contains("hidden")) {
@@ -95,14 +109,22 @@ const closeMineWindow = function() {
   overlayMine.classList.add("hidden");
 };
 
-showMine.addEventListener("click", function () {
+const openMineWindow = function() {
   mineWindow.classList.remove("hidden");
   overlayMine.classList.remove("hidden");
-});
+}
 
-closeMine.addEventListener("click", closeMineWindow);
+if (showMine) {
+  showMine.addEventListener("click", openMineWindow);
+}
 
-overlayMine.addEventListener("click", closeMineWindow);
+if (closeMine) {
+  closeMine.addEventListener("click", closeMineWindow);
+}
+
+if (overlayMine) {
+  overlayMine.addEventListener("click", closeMineWindow);
+}
 
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape" && !mineWindow.classList.contains("hidden")) {
@@ -121,14 +143,22 @@ const closeAnagramWindow = function() {
   overlayAnagram.classList.add("hidden");
 };
 
-showAnagram.addEventListener("click", function () {
+const openAnagramWindow = function() {
   anagramWindow.classList.remove("hidden");
   overlayAnagram.classList.remove("hidden");
-});
+}
 
-closeAnagram.addEventListener("click", closeAnagramWindow);
+if (showAnagram) {
+  showAnagram.addEventListener("click", openAnagramWindow);
+}
 
-overlayAnagram.addEventListener("click", closeAnagramWindow);
+if (closeAnagram) {
+  closeAnagram.addEventListener("click", closeAnagramWindow);
+}
+
+if (overlayAnagram) {
+  overlayAnagram.addEventListener("click", closeAnagramWindow);
+}
 
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape" && !anagramWindow.classList.contains("hidden")) {
@@ -147,14 +177,22 @@ const closePigWindow = function() {
   overlayPig.classList.add("hidden");
 };
 
-showPig.addEventListener("click", function () {
+const openPigWindow = function() {
   pigWindow.classList.remove("hidden");
   overlayPig.classList.remove("hidden");
-});
+}
 
-closePig.addEventListener("click", closePigWindow);
+if (showPig) {
+  showPig.addEventListener("click", openPigWindow);
+}
 
-overlayPig.addEventListener("click", closePigWindow);
+if (closePig) {
+  closePig.addEventListener("click", closePigWindow);
+}
+
+if (overlayPig) {
+  overlayPig.addEventListener("click", closePigWindow);
+}
 
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape" && !pigWindow.classList.contains("hidden")) {

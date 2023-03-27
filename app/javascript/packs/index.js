@@ -1,1 +1,2 @@
-import { Application } from "./script"
+import { Script } from "./script"
+import { Anagram } from "./anagram"
