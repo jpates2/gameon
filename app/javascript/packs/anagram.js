@@ -1,7 +1,11 @@
 const anagramPlayButton = document.querySelector(".anagram-play-button");
+const anagramPlayButtonContainer = document.querySelector(".anagram-play-button-container");
 
 const startAnagram = function() {
-  console.log("check");
+  anagramPlayButtonContainer.classList.add("fade-out");
+  console.log("hide");
 }
 
-anagramPlayButton.addEventListener("click", startAnagram);
+if (anagramPlayButton) {
+  anagramPlayButton.addEventListener("click", startAnagram);
+}

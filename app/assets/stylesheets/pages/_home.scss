@@ -15,3 +15,13 @@ h1, h3, h4, p, a {
 a {
   text-decoration: none;
 }
+
+.hidden {
+  display: none;
+}
+
+.fade-out {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 800ms, opacity 800ms;
+}
