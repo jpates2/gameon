@@ -19,10 +19,28 @@
   width: 90vw;
   background-color: rgba(0, 0, 0, 1);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .anagram-header {
   color: rgba(255, 255, 255, 1);
   font-size: 64px;
+}
+
+.anagram-play-button {
+  background-color: #DC0073;
+  color: rgba(255, 255, 255, 1);
+  height: 10vh;
+  width: 15vw;
+  margin: auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.anagram-play-button:hover {
+  color: black;
+  cursor: pointer;
 }
