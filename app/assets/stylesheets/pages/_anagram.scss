@@ -1,0 +1,28 @@
+.anagram-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  margin: auto 0;
+  background: repeating-linear-gradient(
+    45deg,
+    #00A1E4,
+    #00A1E4 80px,
+    #DC0073 80px,
+    #DC0073 160px
+  );
+}
+
+.anagram-inner-container {
+  margin-top: 10vh;
+  padding: 5vh;
+  height: 80vh;
+  width: 90vw;
+  background-color: rgba(0, 0, 0, 1);
+  display: flex;
+  justify-content: center;
+}
+
+.anagram-header {
+  color: rgba(255, 255, 255, 1);
+  font-size: 64px;
+}
