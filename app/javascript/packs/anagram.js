@@ -8,7 +8,8 @@ const startAnagram = function() {
   anagramPlayButtonContainer.classList.add("fade-out");
   anagramGame.classList.add("fade-in");
   anagramGame.classList.remove("hidden-delay");
-  anagramWord.innerHTML = "_   ".repeat(randomAnagram(anagramWordbank).length);
+  anagramWord.innerHTML = (randomAnagram(anagramWordbank).toUpperCase()).split("").join(" ");
+  // anagramWord.innerHTML = "_   ".repeat(randomAnagram(anagramWordbank).length);
 }
 
 if (anagramPlayButton) {

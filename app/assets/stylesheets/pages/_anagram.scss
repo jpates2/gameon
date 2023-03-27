@@ -49,8 +49,25 @@
   cursor: pointer;
 }
 
+.anagram-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -20vh;
+}
+
 .anagram-word {
   color: white;
   font-size: 56px;
-  margin-top: -20vh;
+  // margin: 0 auto;
+}
+
+.anagram-response-container {
+  display: flex;
+  margin-top: 10vh;
+}
+
+#user-anagram-guess {
+  width: 20vw;
+  margin-right: 4vw;
 }
