@@ -29,7 +29,7 @@
 }
 
 .anagram-play-button-container {
-  margin-top: 20vh;
+  margin-top: 16vh;
 }
 
 .anagram-button {
@@ -59,7 +59,6 @@
 .anagram-word {
   color: white;
   font-size: 56px;
-  // margin: 0 auto;
 }
 
 .anagram-response-container {
@@ -72,8 +71,38 @@
   margin-right: 4vw;
 }
 
-.anagram-result {
+.anagram-result-start {
   color: white;
   margin-top: 8vh;
   font-size: 24px;
+}
+
+.anagram-result-correct {
+  background-color: #89FC00;
+  color: rgba(255, 255, 255, 1);
+  height: 10vh;
+  width: 15vw;
+  margin: auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.anagram-play-again-button {
+  color: #DC0073;
+  font-size: 32px;
+  animation: blink 3s linear infinite;
+  animation-delay: blink 2s;
+}
+
+.anagram-play-again-button:hover {
+  color: white;
+  cursor: pointer;
+}
+
+@keyframes blink{
+  0%{opacity: 0;}
+  50%{opacity: .5;}
+  100%{opacity: 1;}
 }

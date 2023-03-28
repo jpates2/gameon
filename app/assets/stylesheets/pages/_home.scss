@@ -26,6 +26,12 @@ a {
   transition: visibility 0s linear 800ms, opacity 800ms;
 }
 
+.fade-out-slow {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 6000ms, opacity 6000ms;
+}
+
 .fade-in {
   visibility: visible;
   opacity: 100;

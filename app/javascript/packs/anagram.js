@@ -1,10 +1,13 @@
 const anagramPlayButton = document.querySelector(".anagram-play-button");
+const anagramPlayAgainButton = document.querySelector(".anagram-play-again-button");
 const anagramPlayButtonContainer = document.querySelector(".anagram-play-button-container");
 const anagramGame = document.querySelector(".anagram-game");
 const anagramWord = document.querySelector(".anagram-word");
 const anagramGoButton = document.querySelector(".anagram-go-button");
+const anagramButton = document.querySelector(".anagram-button");
 const anagramGuess = document.querySelector("#user-anagram-guess");
 const anagramResult = document.querySelector(".anagram-result");
+const anagramResultCorrect = document.querySelector(".anagram-result-correct");
 
 const startAnagram = function() {
   anagramPlayButtonContainer.classList.add("fade-out");
@@ -58,16 +61,31 @@ const randomAnagram = function (obj) {
 
 const checkAnagram = function() {
   if (anagramGuess.value.toLowerCase() === anagramPair) {
-    console.log(true);
-    anagramGoButton.innerText = "PLAY AGAIN";
-    anagramResult.innerText = "CORRECT, YOU WIN!"
+    anagramGoButton.innerText = "CORRECT";
+    anagramGoButton.classList.add("anagram-result-correct");
+    anagramGoButton.disabled = true;
+    anagramPlayAgainButton.classList.remove("hidden");
+    anagramResult.classList.add("hidden");
   } else {
-    anagramResult.innerText = "INCORRECT ANSWER, TRY AGAIN"
-    console.log(false);
+    anagramResult.classList.remove("hidden");
+    anagramResult.innerText = "INCORRECT ANSWER, TRY AGAIN";
   }
   anagramGuess.value = "";
 }
 
 if (anagramGoButton) {
   anagramGoButton.addEventListener("click", checkAnagram);
+}
+
+const playAgain = function() {
+  anagramPlayAgainButton.classList.add("hidden");
+  anagramWord.innerHTML = (randomAnagram(anagramWordbank).toUpperCase()).split("").join(" ");
+  anagramGoButton.innerText = "GO";
+  anagramGoButton.classList.remove("anagram-result-correct");
+  anagramResult.classList.remove("hidden");
+  anagramResult.classList.innerText = "";
+}
+
+if (anagramPlayAgainButton) {
+  anagramPlayAgainButton.addEventListener("click", playAgain)
 }
