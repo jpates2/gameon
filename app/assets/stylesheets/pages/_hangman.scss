@@ -48,3 +48,30 @@
   color: black;
   cursor: pointer;
 }
+
+.hangman-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -20vh;
+}
+
+.hangman-word {
+  color: white;
+  font-size: 56px;
+}
+
+.hangman-alphabet {
+  color: white;
+  font-size: 32px;
+}
+
+.hangman-alphabet-1 {
+  margin-top: 4vh;
+}
+
+.hangman-alphabet-1, .hangman-alphabet-2 {
+  display: flex;
+  justify-content: space-between;
+  width: 60vw;
+}
