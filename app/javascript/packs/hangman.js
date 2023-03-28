@@ -24,9 +24,21 @@ console.log(randomHangman);
 
 const addAlphabet = function() {
   for (i = 65; i <= 77; i++) {
-    hangmanAlphabetOne.insertAdjacentHTML("beforeend", `<p class = "hangman-alphabet-letter">${(String.fromCharCode(i))}<p>`);
+    hangmanAlphabetOne.insertAdjacentHTML("beforeend", `<p class = "hangman-alphabet-letter hangman-letter-${i}">${(String.fromCharCode(i))}<p>`);
   }
   for (i = 78; i <= 90; i++) {
-    hangmanAlphabetTwo.insertAdjacentHTML("beforeend", `<p class = "hangman-alphabet-letter">${(String.fromCharCode(i))}<p>`);
+    hangmanAlphabetTwo.insertAdjacentHTML("beforeend", `<p class = "hangman-alphabet-letter hangman-letter-${i}">${(String.fromCharCode(i))}<p>`);
   }
 }
+
+const hangmanAlphabetLetter = document.querySelectorAll(".hangman-alphabet-letter");
+
+const hangmanLetterPick = function() {
+  console.log("lettercheck");
+}
+
+for (let i = 0; i < hangmanAlphabetLetter.length; i++)
+  hangmanAlphabetLetter[i].addEventListener("click", hangmanLetterPick);
+
+
+console.log(hangmanAlphabetLetter);
