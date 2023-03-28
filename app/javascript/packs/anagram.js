@@ -82,8 +82,8 @@ const playAgain = function() {
   anagramWord.innerHTML = (randomAnagram(anagramWordbank).toUpperCase()).split("").join(" ");
   anagramGoButton.innerText = "GO";
   anagramGoButton.classList.remove("anagram-result-correct");
-  anagramResult.classList.remove("hidden");
   anagramResult.classList.innerText = "";
+  // anagramResult.classList.remove("hidden");
 }
 
 if (anagramPlayAgainButton) {
