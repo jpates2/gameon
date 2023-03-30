@@ -9,7 +9,7 @@ const hangmanAlphabetTwo = document.querySelector(".hangman-alphabet-2");
 
 const correctLetters = [];
 const incorrectLetters = [];
-const hangmanLivesStart = 6;
+let hangmanLivesStart = 6;
 
 const hangmanWordbank = ["broken", "necessary", "rocket", "trampoline", "firework"];
 
@@ -21,7 +21,7 @@ const startHangman = function() {
   hangmanGame.classList.add("fade-in");
   hangmanGame.classList.remove("hidden-delay");
   displayHangmanWord();
-  addLives();
+  displayLives();
   // generateLetters();
   // hangmanSecretWord = Array(randomHangman.length).fill("__");
   // hangmanWord.innerHTML = hangmanSecretWord.join("  ");
@@ -42,9 +42,9 @@ function generateLetters() {
   hangmanAlphabet.innerHTML = lettersHTML;
  }
 
-const addLives = function () {
-  let livesHTML = `<i class="fa-solid fa-heart fa-solid-hangman"></i>`.repeat(6)
-  hangmanLives.insertAdjacentHTML("afterbegin", livesHTML);
+const displayLives = function () {
+
+  hangmanLives.insertAdjacentHTML("afterbegin", `<i class="fa-solid fa-heart fa-solid-hangman"></i>`.repeat(hangmanLivesStart));
 }
 
  const displayHangmanWord = function() {
@@ -93,13 +93,16 @@ function hangmanLetterPick(chosenHangmanLetter) {
   if (randomHangman.includes(chosenHangmanLetter)) {
     correctLetters.push(chosenHangmanLetter);
     document.querySelector(`.hangman-letter-${chosenHangmanLetter.toLowerCase()}`).classList.add("hangman-alphabet-letter-correct")
-   } else {
+  } else {
     incorrectLetters.push(chosenHangmanLetter);
     document.querySelector(`.hangman-letter-${chosenHangmanLetter.toLowerCase()}`).classList.add("hangman-alphabet-letter-incorrect")
-   }
+    hangmanLivesStart--;
+    hangmanLives.innerHTML = "";
+    displayLives();
+  }
+  console.log(hangmanLivesStart);
   displayHangmanWord();
   (`alphabet-letter-${chosenHangmanLetter.toLowerCase()}`)
-  console.log(`alphabet-letter-${chosenHangmanLetter.toLowerCase()}`);
 }
 
 
