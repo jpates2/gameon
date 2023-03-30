@@ -88,6 +88,10 @@
   margin-top: 4vh;
 }
 
-.hangman-alphabet-letter-test {
-  color:White;
+.hangman-alphabet-letter-incorrect {
+  color: red;
+}
+
+.hangman-alphabet-letter-correct {
+  color: #89FC00;
 }
