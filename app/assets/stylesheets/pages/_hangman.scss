@@ -95,3 +95,31 @@
 .hangman-alphabet-letter-correct {
   color: #89FC00;
 }
+
+.hangman-game-result {
+  color: #89FC00;
+  font-size: 56px;
+}
+
+.hangman-play-again-button {
+  color: #00A1E4;
+  font-size: 32px;
+  animation: blink 3s linear infinite;
+  animation-delay: blink 2s;
+  margin-top: 4vh;
+}
+
+.hangman-play-again-button:hover {
+  color: white;
+  cursor: pointer;
+}
+
+@keyframes blink{
+  0%{opacity: 0;}
+  50%{opacity: .5;}
+  100%{opacity: 1;}
+}
+
+.hangman-game-result-container {
+  text-align: center;
+}
