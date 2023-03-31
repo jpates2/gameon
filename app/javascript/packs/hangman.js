@@ -7,14 +7,16 @@ const hangmanAlphabet = document.querySelector(".hangman-alphabet");
 const hangmanAlphabetOne = document.querySelector(".hangman-alphabet-1");
 const hangmanAlphabetTwo = document.querySelector(".hangman-alphabet-2");
 const hangmanPlayAgainButton = document.querySelector(".hangman-play-again-button");
+const hangmanGameResult = document.querySelector(".hangman-game-result");
+const hangmanGameResultContainer = document.querySelector(".hangman-game-result-container");
 
-const correctLetters = [];
-const incorrectLetters = [];
+let correctLetters = ["A", "E", "S", "R", "T", "M", "B", "N", "O", "F", "I"];
+let incorrectLetters = [];
 let hangmanLivesStart = 6;
 
 const hangmanWordbank = ["broken", "necessary", "rocket", "trampoline", "firework"];
 
-const randomHangman = hangmanWordbank[Math.floor(Math.random() * hangmanWordbank.length)].toUpperCase();
+let randomHangman = hangmanWordbank[Math.floor(Math.random() * hangmanWordbank.length)].toUpperCase();
 console.log(randomHangman);
 
 const startHangman = function() {
@@ -23,6 +25,7 @@ const startHangman = function() {
   hangmanGame.classList.remove("hidden-delay");
   displayHangmanWord();
   displayLives();
+  addHangmanEvents();
   // generateLetters();
   // hangmanSecretWord = Array(randomHangman.length).fill("__");
   // hangmanWord.innerHTML = hangmanSecretWord.join("  ");
@@ -45,7 +48,6 @@ function generateLetters() {
  }
 
 const displayLives = function () {
-
   hangmanLives.insertAdjacentHTML("afterbegin", `<i class="fa-solid fa-heart fa-solid-hangman"></i>`.repeat(hangmanLivesStart));
 }
 
@@ -61,11 +63,9 @@ const displayLives = function () {
   if(innerWord.split(" ").join("") === randomHangman){
     console.log("game won");
     hangmanLives.innerHTML = "";
-    hangmanLives.insertAdjacentHTML("afterend", `<div class = "hangman-game-result-container"><p class = "hangman-game-result">YOU WIN!</p></div>`)
+    hangmanLives.insertAdjacentHTML("afterend", `<div class = hangman-game-result-container><p class = "hangman-game-result">YOU WIN!</p></div>`)
     hangmanPlayAgainButton.classList.remove("hidden")
   }
-  console.log(innerWord.split(" ").join(""));
-  console.log(randomHangman);
 }
 
 const hangmanAlphabetLetterA = document.querySelector(".hangman-letter-a");
@@ -98,10 +98,13 @@ const hangmanAlphabetLetterZ = document.querySelector(".hangman-letter-z");
 function hangmanLetterPick(chosenHangmanLetter) {
   if (randomHangman.includes(chosenHangmanLetter)) {
     correctLetters.push(chosenHangmanLetter);
-    document.querySelector(`.hangman-letter-${chosenHangmanLetter.toLowerCase()}`).classList.add("hangman-alphabet-letter-correct")
+    document.querySelector(`.hangman-letter-${chosenHangmanLetter.toLowerCase()}`).classList.add("hangman-alphabet-letter-correct");
+    document.querySelector(`.hangman-letter-${chosenHangmanLetter.toLowerCase()}`).disabled = true;
+
   } else {
     incorrectLetters.push(chosenHangmanLetter);
     document.querySelector(`.hangman-letter-${chosenHangmanLetter.toLowerCase()}`).classList.add("hangman-alphabet-letter-incorrect")
+    document.querySelector(`.hangman-letter-${chosenHangmanLetter.toLowerCase()}`).disabled = true;
     hangmanLivesStart--;
     hangmanLives.innerHTML = "";
     displayLives();
@@ -111,6 +114,26 @@ function hangmanLetterPick(chosenHangmanLetter) {
 }
 
 
+const playHangmanAgain = function() {
+  console.log("test");
+  addHangmanEvents();
+  hangmanPlayAgainButton.classList.add("hidden");
+  hangmanWord.innerText = "";
+  document.querySelector(".hangman-game-result").remove();
+  generateLetters();
+  hangmanLivesStart = 6;
+  displayLives();
+  incorrectLetters = [];
+  correctLetters = [];
+  randomHangman = hangmanWordbank[Math.floor(Math.random() * hangmanWordbank.length)].toUpperCase();
+  displayHangmanWord();
+}
+
+if (hangmanPlayAgainButton) {
+  hangmanPlayAgainButton.addEventListener("click", playHangmanAgain)
+}
+
+const addHangmanEvents = function() {
 hangmanAlphabetLetterA.addEventListener("click", function () {hangmanLetterPick("A")});
 hangmanAlphabetLetterB.addEventListener("click", function () {hangmanLetterPick("B")});
 hangmanAlphabetLetterC.addEventListener("click", function () {hangmanLetterPick("C")});
@@ -137,6 +160,7 @@ hangmanAlphabetLetterW.addEventListener("click", function () {hangmanLetterPick(
 hangmanAlphabetLetterX.addEventListener("click", function () {hangmanLetterPick("X")});
 hangmanAlphabetLetterY.addEventListener("click", function () {hangmanLetterPick("Y")});
 hangmanAlphabetLetterZ.addEventListener("click", function () {hangmanLetterPick("Z")});
+}
 
 // const hangmanAlphabetLetter = document.querySelector(`.hangman-letter-${letter}`);
 
