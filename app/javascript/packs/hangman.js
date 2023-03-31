@@ -10,7 +10,7 @@ const hangmanPlayAgainButton = document.querySelector(".hangman-play-again-butto
 const hangmanGameResult = document.querySelector(".hangman-game-result");
 const hangmanGameResultContainer = document.querySelector(".hangman-game-result-container");
 
-let correctLetters = ["A", "E", "S", "R", "T", "M", "B", "N", "O", "F", "I"];
+let correctLetters = [];
 let incorrectLetters = [];
 let hangmanLivesStart = 6;
 
@@ -115,18 +115,19 @@ function hangmanLetterPick(chosenHangmanLetter) {
 
 
 const playHangmanAgain = function() {
-  console.log("test");
-  addHangmanEvents();
-  hangmanPlayAgainButton.classList.add("hidden");
-  hangmanWord.innerText = "";
-  document.querySelector(".hangman-game-result").remove();
-  generateLetters();
-  hangmanLivesStart = 6;
-  displayLives();
-  incorrectLetters = [];
-  correctLetters = [];
-  randomHangman = hangmanWordbank[Math.floor(Math.random() * hangmanWordbank.length)].toUpperCase();
-  displayHangmanWord();
+  // console.log("test2");
+  // addHangmanEvents();
+  // hangmanPlayAgainButton.classList.add("hidden");
+  // hangmanWord.innerText = "";
+  // document.querySelector(".hangman-game-result").remove();
+  // generateLetters();
+  // hangmanLivesStart = 6;
+  // displayLives();
+  // incorrectLetters = [];
+  // correctLetters = [];
+  // randomHangman = hangmanWordbank[Math.floor(Math.random() * hangmanWordbank.length)].toUpperCase();
+  // displayHangmanWord();
+  window.location.reload();
 }
 
 if (hangmanPlayAgainButton) {
