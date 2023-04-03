@@ -21,7 +21,6 @@ if (anagramPlayButton) {
   anagramPlayButton.addEventListener("click", startAnagram);
 }
 
-// const anagramWordbank = [["melon", "lemon"], ["listen", "silent"], ["players", "parsley"], ["deductions", "discounted"], ["resistance", "ancestries"]];
 const anagramWordbank = {
   melon: "lemon",
   listen: "silent",
@@ -38,26 +37,6 @@ const randomAnagram = function (obj) {
   anagramPair = obj[`${randomAnagram}`];
   return randomAnagram;
 };
-
-// const randomAnagram = function (obj) {
-//   const keys = Object.keys(obj);
-//   return obj[keys[ keys.length * Math.random() << 0]];
-// };
-
-// const randomAnagram = function (obj) {
-//   const entries = Object.entries(obj);
-
-//   for (const [key, value] of entries) {
-//     console.log(key);
-//     console.log(value);
-//     return key[key.length * Math.random() << 0];
-//   }
-// };
-
-// const checkAnagram = function() {
-//   if (anagramGuess.value.toLowerCase() === anagramWord.innerText.toLowerCase().replace(/\W/g, ''))
-//     console.log(true);
-// }
 
 const checkAnagram = function() {
   if (anagramGuess.value.toLowerCase() === anagramPair) {
@@ -83,7 +62,6 @@ const playAgain = function() {
   anagramGoButton.innerText = "GO";
   anagramGoButton.classList.remove("anagram-result-correct");
   anagramResult.classList.innerText = "";
-  // anagramResult.classList.remove("hidden");
 }
 
 if (anagramPlayAgainButton) {
