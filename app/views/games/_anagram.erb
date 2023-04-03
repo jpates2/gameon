@@ -1,24 +1,26 @@
 <div class = "anagram-container">
+  <%= render "shared/navbar" %>
   <div class = "anagram-inner-container">
-    <h1 class = "anagram-header">ANAGRAM</h1>
+    <div class = "anagram-black-box">
+      <h1 class = "anagram-header">ANAGRAM</h1>
 
-    <div class = "anagram-play-button-container">
-      <a class = "anagram-play-button anagram-button">CLICK TO PLAY</a>
+      <div class = "anagram-play-button-container">
+        <a class = "anagram-play-button anagram-button">CLICK TO PLAY</a>
+      </div>
+
+      <div class = "anagram-game hidden-delay">
+        <div>
+          <p class = "anagram-word"></p>
+        </div>
+        <div class = "anagram-response-container">
+          <input type="text" id="user-anagram-guess">
+          <a class = "anagram-go-button anagram-button">GO</a>
+        </div>
+        <div class = "anagram-result-start">
+          <p class = "anagram-result"></p>
+        </div>
+        <a class = "anagram-play-again-button hidden">PLAY AGAIN</a>
+      </div>
     </div>
-
-    <div class = "anagram-game hidden-delay">
-      <div>
-        <p class = "anagram-word"></p>
-      </div>
-      <div class = "anagram-response-container">
-        <input type="text" id="user-anagram-guess">
-        <a class = "anagram-go-button anagram-button">GO</a>
-      </div>
-      <div class = "anagram-result-start">
-        <p class = "anagram-result"></p>
-      </div>
-      <a class = "anagram-play-again-button hidden">PLAY AGAIN</a>
-    </div>
-
   </div>
 </div>
