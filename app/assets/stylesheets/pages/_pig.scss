@@ -73,15 +73,11 @@
   height: 48vh;
   width: 26vw;
   padding: 24px;
+  background-color: rgba(220, 0, 115, 0.5);
 }
 
 .pig-active-player {
   background-color: rgba(220, 0, 115, 1);
-
-}
-
-.pig-inactive-player {
-  background-color: rgba(220, 0, 115, 0.5);
 }
 
 .pig-btn {
@@ -115,17 +111,14 @@
   font-size: 24px;
   padding: 8px 32px;
   margin-top: 32px;
-}
-
-.pig-current-active {
   background-color: black;
   color: white;
 }
 
-.pig-current-inactive {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: rgba(255, 255, 255, 0.7);
-}
+// .pig-current-inactive {
+//   background-color: rgba(0, 0, 0, 0.7);
+//   color: rgba(255, 255, 255, 0.7);
+// }
 
 .pig-round {
   font-size: 40px;
