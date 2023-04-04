@@ -41,7 +41,7 @@ const initialisePig = function () {
 initialisePig();
 
 const switchPlayer = function () {
-  document.querySelector(`pig-current-${activePlayer}`).textContent = 0;
+  document.querySelector(`.pig-current-${activePlayer + 1}`).textContent = 0;
   currentScore = 0;
   activePlayer = activePlayer === 0 ? 1 : 0;
   pigPlayer1.classList.toggle("pig-active-player");
