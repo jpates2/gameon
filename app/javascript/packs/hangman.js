@@ -17,7 +17,7 @@ let hangmanLivesStart = 6;
 const hangmanWordbank = ["broken", "necessary", "rocket", "trampoline", "firework"];
 
 let randomHangman = hangmanWordbank[Math.floor(Math.random() * hangmanWordbank.length)].toUpperCase();
-console.log(randomHangman);
+// console.log(randomHangman);
 
 const startHangman = function() {
   hangmanPlayButtonContainer.classList.add("fade-out");

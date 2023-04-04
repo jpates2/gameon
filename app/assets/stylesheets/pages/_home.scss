@@ -29,7 +29,7 @@ a {
 .fade-out-slow {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s linear 6000ms, opacity 6000ms;
+  transition: visibility 0s linear 2000ms, opacity 2000ms;
 }
 
 .fade-in {

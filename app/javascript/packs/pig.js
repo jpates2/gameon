@@ -9,7 +9,8 @@ const pigScore1 = document.querySelector(".pig-score-1")
 const pigScore2 = document.querySelector(".pig-score-2")
 const pigCurrent1 = document.querySelector(".pig-current-1")
 const pigCurrent2 = document.querySelector(".pig-current-2")
-const pigDice = document.querySelector(".fa-dice")
+const pigShowDice = document.querySelector(".fa-dice")
+const pigDice = document.querySelector(".pig-dice")
 
 let scores, currentScore, activePlayer, playing;
 
@@ -17,6 +18,8 @@ const startPig = function() {
   pigPlayButtonContainer.classList.add("fade-out");
   pigGame.classList.add("fade-in");
   pigGame.classList.remove("hidden-delay");
+  // pigShowDice.classList.remove("hidden");
+  // pigShowDice.classList.add("fade-out-slow");
 }
 
 if (pigPlayButton) {
@@ -24,8 +27,6 @@ if (pigPlayButton) {
 }
 
 const initialisePig = function () {
-  pigDice.classList.add("fade-out");
-
   scores = [0, 0];
   currentScore = 0;
   activePlayer = 0;
@@ -37,9 +38,7 @@ const initialisePig = function () {
   pigCurrent2.textContent = 0;
 }
 
-if (pigBtnRoll) {
-  pigBtnRoll.addEventListener("click", initialisePig)
-}
+initialisePig();
 
 const switchPlayer = function () {
   document.querySelector(`pig-current-${activePlayer}`).textContent = 0;
@@ -48,3 +47,29 @@ const switchPlayer = function () {
   pigPlayer1.classList.toggle("pig-active-player");
   pigPlayer2.classList.toggle("pig-active-player");
 };
+
+const pigRoll = function() {
+  if (playing) {
+    const diceWords = {
+      1: "one",
+      2: "two",
+      3: "three",
+      4: "four",
+      5: "five",
+      6: "six"
+    }
+
+    const dice = Math.trunc(Math.random() * 6) + 1;
+    pigShowDice.classList.add("hidden");
+    pigDice.classList = "";
+    // pigDice.classList.remove("hidden");
+    pigDice.classList.add("fa-solid");
+    pigDice.classList.add(`fa-dice-${diceWords[dice]}`);
+    // pigDice.classList.add("fade-in");
+    console.log(`fa-dice-${diceWords[dice]}`);
+  }
+}
+
+if (pigBtnRoll) {
+  pigBtnRoll.addEventListener("click", pigRoll)
+}
