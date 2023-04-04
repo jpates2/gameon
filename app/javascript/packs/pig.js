@@ -37,6 +37,13 @@ const initialisePig = function () {
   pigScore1.textContent = 0;
   pigCurrent0.textContent = 0;
   pigCurrent1.textContent = 0;
+  pigPlayer0.classList.remove("pig-winner")
+  pigPlayer1.classList.remove("pig-winner")
+  pigPlayer0.classList.add("pig-active-player")
+  pigPlayer1.classList.remove("pig-active-player")
+  pigPlayAgainButton.classList.add("hidden")
+  pigRound0.style.color = "white";
+  pigRound1.style.color = "white";
 }
 
 initialisePig();
@@ -110,4 +117,11 @@ const pigHold = function () {
 
 if (pigBtnHold) {
   pigBtnHold.addEventListener("click", pigHold)
+}
+
+
+
+
+if (pigPlayAgainButton) {
+  pigPlayAgainButton.addEventListener("click", initialisePig)
 }
