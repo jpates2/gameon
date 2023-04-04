@@ -62,14 +62,20 @@ const pigRoll = function() {
     const dice = Math.trunc(Math.random() * 6) + 1;
     pigShowDice.classList.add("hidden");
     pigDice.classList = "";
-    // pigDice.classList.remove("hidden");
     pigDice.classList.add("fa-solid");
     pigDice.classList.add(`fa-dice-${diceWords[dice]}`);
-    // pigDice.classList.add("fade-in");
-    console.log(`fa-dice-${diceWords[dice]}`);
+
+    if (dice !== 1) {
+      currentScore += dice;
+      document.querySelector(`.pig-current-${activePlayer + 1}`).textContent = currentScore;
+    } else {
+      switchPlayer();
+    }
   }
 }
 
 if (pigBtnRoll) {
   pigBtnRoll.addEventListener("click", pigRoll)
 }
+
+console.log(`pig-current-${activePlayer + 1}`);
