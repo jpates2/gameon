@@ -47,7 +47,7 @@ const openFlashWindow = function() {
   overlayFlash.classList.remove("hidden");
 }
 if (showFlash) {
-  showFlash.addEventListener("click", openHangmanWindow);
+  showFlash.addEventListener("click", openFlashWindow);
 }
 
 if (closeFlash) {

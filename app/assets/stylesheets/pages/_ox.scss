@@ -1,0 +1,62 @@
+.ox-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 0px;
+  background: repeating-linear-gradient(
+    45deg,
+    #89FC00,
+    #89FC00 80px,
+    #00A1E4 80px,
+    #00A1E4 160px
+  );
+}
+
+.ox-inner-container {
+  display: flex;
+  margin: 0 auto;
+}
+
+.ox-black-box {
+  padding: 5vh;
+  height: 80vh;
+  width: 90vw;
+  background-color: rgba(0, 0, 0, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ox-header {
+  color: rgba(255, 255, 255, 1);
+  font-size: 64px;
+}
+
+.ox-play-button-container {
+  margin-top: 16vh;
+}
+
+.ox-button {
+  background-color: #89FC00;
+  color: rgba(255, 255, 255, 1);
+  height: 10vh;
+  width: 16vw;
+  margin: auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.ox-button:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.ox-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -20vh;
+}
