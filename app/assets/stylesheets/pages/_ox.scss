@@ -60,3 +60,49 @@
   align-items: center;
   margin-top: -20vh;
 }
+
+.ox-game-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+}
+
+td {
+  // border: 1px solid white;
+  height: 16vh;
+  width: 16vh;
+}
+
+#ox-top-left {
+  border-right: 8px solid white;
+  border-bottom: 8px solid white;
+}
+
+#ox-middle-center {
+  border: 8px solid white;
+}
+
+#ox-bottom-left {
+  border-right: 8px solid white;
+  border-top: 8px solid white;
+}
+
+#ox-top-right {
+  border-left: 8px solid white;
+  border-bottom: 8px solid white;
+}
+
+#ox-bottom-right {
+  border-left: 8px solid white;
+  border-top: 8px solid white;
+}
+
+.ox-player {
+  color: rgba(0, 161, 228, 0.4);
+  font-size: 48px;
+}
+
+.ox-active-player {
+  color: rgba(0, 161, 228, 1);
+}

@@ -21,6 +21,7 @@ const startPig = function() {
   pigPlayButtonContainer.classList.add("fade-out");
   pigGame.classList.add("fade-in");
   pigGame.classList.remove("hidden-delay");
+  initialisePig();
 }
 
 if (pigPlayButton) {
@@ -46,7 +47,6 @@ const initialisePig = function () {
   pigRound1.style.color = "white";
 }
 
-initialisePig();
 
 const switchPlayer = function () {
   document.querySelector(`.pig-current-${activePlayer}`).textContent = 0;

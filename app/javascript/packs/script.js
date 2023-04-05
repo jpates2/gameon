@@ -204,7 +204,6 @@ document.addEventListener("keydown", function (e) {
 const playButton = document.querySelectorAll(".play-button");
 
 const closeAllWindow = function() {
-  console.log("play");
   hangmanWindow.classList.add("hidden");
   overlayHangman.classList.add("hidden");
   flashWindow.classList.add("hidden");
