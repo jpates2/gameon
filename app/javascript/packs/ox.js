@@ -16,7 +16,7 @@ const oxBottomRight = document.getElementById("ox-bottom-right");
 
 let oxArray = [[], [], []];
 
-let activeOxPlayer;
+let activeOxPlayer, oxPlaying;
 
 const startOx = function() {
   oxPlayButtonContainer.classList.add("fade-out");
@@ -32,7 +32,7 @@ if (oxPlayButton) {
 const initialiseOx = function () {
   activeOxPlayer = 0;
   oxArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
-  // oxPlaying = true;
+  oxPlaying = true;
 }
 
 const switchPlayerOx = function () {
@@ -42,20 +42,14 @@ const switchPlayerOx = function () {
 };
 
 const oxClickBoard = function (e) {
-  const oxCell = e.target;
-  const oxValue = activeOxPlayer === 0 ? "O" : "X";
-  switchPlayerOx();
-  oxTurn(oxCell, oxValue);
-  oxArray[parseInt(e.target.parentElement.rowIndex)][parseInt(e.target.cellIndex)] = oxValue;
-  checkOxWinner();
-  // console.log(oxArray[0][0] === oxArray[0][1]);
-  // console.log(oxArray[0][1] === oxArray[0][2]);
-  // console.log(oxArray[0][1]);
-  // console.log(oxArray[0][2]);
-
-
-  console.log(oxCell.cellIndex, oxCell.parentElement.rowIndex);
-  console.log(oxArray);
+  if (oxPlaying) {
+    const oxCell = e.target;
+    const oxValue = activeOxPlayer === 0 ? "O" : "X";
+    oxTurn(oxCell, oxValue);
+    oxArray[parseInt(e.target.parentElement.rowIndex)][parseInt(e.target.cellIndex)] = oxValue;
+    checkOxWinner();
+    switchPlayerOx();
+  }
 }
 
 function oxTurn(oxCell, oxValue) {
@@ -67,17 +61,23 @@ for (let i = 0; i < oxBoardBox.length; i++)
 
 const checkOxWinner = function () {
   if(oxArray[0][0] === oxArray[1][1] && oxArray[1][1] === oxArray[2][2] || oxArray[0][2] === oxArray[1][1] && oxArray[1][1] === oxArray[2][0]) {
-    console.log("winner");
+    document.querySelector(`.ox-player-${activeOxPlayer}`).textContent = "WINNER";
+    document.querySelector(`.ox-player-${activeOxPlayer}`).classList.add(".ox-winner") = "WINNER";
+    console.log(`.ox-player-${activeOxPlayer}`.textContent);
+    oxPlaying = false;
   }
 
   for (let a = 0; a < 3; a++) {
     if (oxArray[a][0] === oxArray[a][1] && oxArray[a][1] === oxArray[a][2]) {
-      console.log("winner");
+      document.querySelector(`.ox-player-${activeOxPlayer}`).textContent = "WINNER";
+      document.querySelector(`.ox-player-${activeOxPlayer}`).classList.add(".ox-winner") = "WINNER";
+      oxPlaying = false;
     }
 
     if(oxArray[0][a] === oxArray[1][a] && oxArray[1][a] === oxArray[2][a]) {
-      console.log("winner");
+      document.querySelector(`.ox-player-${activeOxPlayer}`).textContent = "WINNER";
+      document.querySelector(`.ox-player-${activeOxPlayer}`).classList.add(".ox-winner") = "WINNER";
+      oxPlaying = false;
     }
   }
-
 }
