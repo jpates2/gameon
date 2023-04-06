@@ -13,6 +13,7 @@ const oxMiddleRight = document.getElementById("ox-middle-right");
 const oxBottomLeft = document.getElementById("ox-bottom-left");
 const oxBottomCenter = document.getElementById("ox-bottom-center");
 const oxBottomRight = document.getElementById("ox-bottom-right");
+const oxPlayAgainButton = document.querySelector(".ox-play-again-button");
 
 let oxArray = [[], [], []];
 
@@ -60,24 +61,24 @@ for (let i = 0; i < oxBoardBox.length; i++)
   oxBoardBox[i].addEventListener("click", oxClickBoard, {once: true});
 
 const checkOxWinner = function () {
-  if(oxArray[0][0] === oxArray[1][1] && oxArray[1][1] === oxArray[2][2] || oxArray[0][2] === oxArray[1][1] && oxArray[1][1] === oxArray[2][0]) {
-    document.querySelector(`.ox-player-${activeOxPlayer}`).textContent = "WINNER";
-    document.querySelector(`.ox-player-${activeOxPlayer}`).classList.add(".ox-winner") = "WINNER";
-    console.log(`.ox-player-${activeOxPlayer}`.textContent);
-    oxPlaying = false;
+  if (oxArray[0][0] === oxArray[1][1] && oxArray[1][1] === oxArray[2][2] || oxArray[0][2] === oxArray[1][1] && oxArray[1][1] === oxArray[2][0]) {
+    endOxGame();
   }
 
   for (let a = 0; a < 3; a++) {
     if (oxArray[a][0] === oxArray[a][1] && oxArray[a][1] === oxArray[a][2]) {
-      document.querySelector(`.ox-player-${activeOxPlayer}`).textContent = "WINNER";
-      document.querySelector(`.ox-player-${activeOxPlayer}`).classList.add(".ox-winner") = "WINNER";
-      oxPlaying = false;
+      endOxGame();
     }
 
     if(oxArray[0][a] === oxArray[1][a] && oxArray[1][a] === oxArray[2][a]) {
-      document.querySelector(`.ox-player-${activeOxPlayer}`).textContent = "WINNER";
-      document.querySelector(`.ox-player-${activeOxPlayer}`).classList.add(".ox-winner") = "WINNER";
-      oxPlaying = false;
+      endOxGame();
     }
   }
+}
+
+const endOxGame = function () {
+  document.querySelector(`.ox-player-${activeOxPlayer}`).textContent = "WINNER";
+  document.querySelector(`.ox-player-${activeOxPlayer}`).classList.add("ox-winner");
+  oxPlaying = false;
+  oxPlayAgainButton.classList.remove("hidden");
 }

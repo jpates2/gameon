@@ -113,6 +113,29 @@ td {
   text-align: center;
 }
 
-.ow-winner {
+.ox-winner {
   color: #89FC00;
 }
+
+.ox-play-again-button {
+  color: #DC0073;
+  font-size: 32px;
+  margin-top: 2vh;
+  animation: blink 3s linear infinite;
+  animation-delay: blink 2s;
+}
+
+.ox-play-again-button:hover {
+  color: white;
+  cursor: pointer;
+}
+
+@keyframes blink{
+  0%{opacity: 0;}
+  50%{opacity: .5;}
+  100%{opacity: 1;}
+}
+
+// .ox-play-again-container {
+//   text-align: center;
+// }
