@@ -70,8 +70,8 @@
 
 td {
   // border: 1px solid white;
-  height: 16vh;
-  width: 16vh;
+  height: 14vh;
+  width: 14vh;
 }
 
 #ox-top-left {
@@ -101,6 +101,11 @@ td {
 .ox-player {
   color: rgba(0, 161, 228, 0.4);
   font-size: 48px;
+  width: 20vw;
+}
+
+.ox-player-1 {
+  text-align: right;
 }
 
 .ox-active-player {
@@ -109,7 +114,7 @@ td {
 
 .ox-board-box {
   color: white;
-  font-size: 80px;
+  font-size: 64px;
   text-align: center;
 }
 
