@@ -14,17 +14,7 @@ const oxBottomLeft = document.getElementById("ox-bottom-left");
 const oxBottomCenter = document.getElementById("ox-bottom-center");
 const oxBottomRight = document.getElementById("ox-bottom-right");
 
-let oxBoardObject = {
-  oxTopLeft: 1,
-  oxTopCenter: 2,
-  oxTopRight: 3,
-  oxMiddleLeft: 4,
-  oxMiddleCenter: 5,
-  oxMiddleRight: 6,
-  oxBottomLeft: 7,
-  oxBottomCenter: 8,
-  oxBottomRight: 9
-}
+let oxArray = [[], [], []];
 
 let activeOxPlayer;
 
@@ -41,6 +31,7 @@ if (oxPlayButton) {
 
 const initialiseOx = function () {
   activeOxPlayer = 0;
+  oxArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
   // oxPlaying = true;
 }
 
@@ -54,10 +45,17 @@ const oxClickBoard = function (e) {
   const oxCell = e.target;
   const oxValue = activeOxPlayer === 0 ? "O" : "X";
   switchPlayerOx();
-  oxTurn(oxCell, oxValue)
-  console.log(oxCell);
-  console.log(oxCell.cellIndex, oxCell.parentElement.rowIndex);
+  oxTurn(oxCell, oxValue);
+  oxArray[parseInt(e.target.parentElement.rowIndex)][parseInt(e.target.cellIndex)] = oxValue;
+  checkOxWinner();
+  // console.log(oxArray[0][0] === oxArray[0][1]);
+  // console.log(oxArray[0][1] === oxArray[0][2]);
+  // console.log(oxArray[0][1]);
+  // console.log(oxArray[0][2]);
 
+
+  console.log(oxCell.cellIndex, oxCell.parentElement.rowIndex);
+  console.log(oxArray);
 }
 
 function oxTurn(oxCell, oxValue) {
@@ -66,3 +64,20 @@ function oxTurn(oxCell, oxValue) {
 
 for (let i = 0; i < oxBoardBox.length; i++)
   oxBoardBox[i].addEventListener("click", oxClickBoard, {once: true});
+
+const checkOxWinner = function () {
+  if(oxArray[0][0] === oxArray[1][1] && oxArray[1][1] === oxArray[2][2] || oxArray[0][2] === oxArray[1][1] && oxArray[1][1] === oxArray[2][0]) {
+    console.log("winner");
+  }
+
+  for (let a = 0; a < 3; a++) {
+    if (oxArray[a][0] === oxArray[a][1] && oxArray[a][1] === oxArray[a][2]) {
+      console.log("winner");
+    }
+
+    if(oxArray[0][a] === oxArray[1][a] && oxArray[1][a] === oxArray[2][a]) {
+      console.log("winner");
+    }
+  }
+
+}
