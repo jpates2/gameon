@@ -34,6 +34,26 @@ const initialiseOx = function () {
   activeOxPlayer = 0;
   oxArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
   oxPlaying = true;
+  oxPlayer0.innerText = "PLAYER O";
+  oxPlayer1.innerText = "PLAYER X";
+  oxPlayer0.classList.remove("ox-winner");
+  oxPlayer1.classList.remove("ox-winner");
+  oxPlayer0.classList.add("ox-active-player");
+  oxPlayer1.classList.remove("ox-active-player");
+  oxPlayAgainButton.classList.add("hidden");
+  oxBoardBox.innerText = "";
+
+  for (let i = 0; i < oxBoardBox.length; i++)
+    oxBoardBox[i].textContent = "";
+
+  for (let i = 0; i < oxBoardBox.length; i++)
+  oxBoardBox[i].addEventListener("click", oxClickBoard, {once: true});
+}
+
+const restartOx = function () {
+  for (let i = 0; i < oxBoardBox.length; i++)
+  oxBoardBox[i].removeEventListener("click", oxClickBoard);
+  initialiseOx();
 }
 
 const switchPlayerOx = function () {
@@ -57,9 +77,6 @@ function oxTurn(oxCell, oxValue) {
   oxCell.innerText = oxValue
 }
 
-for (let i = 0; i < oxBoardBox.length; i++)
-  oxBoardBox[i].addEventListener("click", oxClickBoard, {once: true});
-
 const checkOxWinner = function () {
   if (oxArray[0][0] === oxArray[1][1] && oxArray[1][1] === oxArray[2][2] || oxArray[0][2] === oxArray[1][1] && oxArray[1][1] === oxArray[2][0]) {
     endOxGame();
@@ -81,4 +98,8 @@ const endOxGame = function () {
   document.querySelector(`.ox-player-${activeOxPlayer}`).classList.add("ox-winner");
   oxPlaying = false;
   oxPlayAgainButton.classList.remove("hidden");
+}
+
+if (oxPlayAgainButton) {
+  oxPlayAgainButton.addEventListener("click", restartOx)
 }
