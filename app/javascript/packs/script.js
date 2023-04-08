@@ -2,6 +2,7 @@ const hangmanWindow = document.querySelector(".hangman-window");
 const showHangman = document.querySelector(".show-hangman");
 const closeHangman = document.querySelector(".close-hangman");
 const overlayHangman = document.querySelector(".overlay-hangman");
+const hangmanLaunchButton = document.querySelector(".hangman-launch-button");
 
 const openHangmanWindow = function() {
   hangmanWindow.classList.remove("hidden");
@@ -30,6 +31,14 @@ document.addEventListener("keydown", function (e) {
     closeHangmanWindow();
   }
 });
+
+const launchHangman = function () {
+  window.location.href = "hangman";
+}
+
+if (hangmanLaunchButton) {
+  hangmanLaunchButton.addEventListener("click", launchHangman)
+}
 
 
 const flashWindow = document.querySelector(".flash-window");
