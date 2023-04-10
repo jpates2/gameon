@@ -39,7 +39,8 @@
             <p>If you see a green square, click it quickly. But avoid the pink squares! Win a point for every green square, lose one for every pink square.</p>
           </div>
           <div class = "play-button-container">
-            <a href="<%= "#{request.original_url}/flash" %>" class="play-button">PLAY</a>
+            <a class="play-button flash-launch-button">PLAY</a>
+            <%# <a href="<%= "#{request.original_url}/flash" %>
           </div>
         </div>
         <div class="overlay-flash overlay hidden"></div>
@@ -59,7 +60,7 @@
             <p>Take it in turns to enter a nought or a cross. Get three in a row to win the game.</p>
           </div>
           <div class = "play-button-container">
-            <a href="<%= "#{request.original_url}/oandx" %>" class="play-button">PLAY</a>
+            <a class="play-button ox-launch-button">PLAY</a>
           </div>
         </div>
         <div class="overlay-ox overlay hidden"></div>
@@ -79,7 +80,7 @@
             <p>Square by square, try to clear the board. But watch out, hit a mine and it's game over.</p>
           </div>
           <div class = "play-button-container">
-            <a href="<%= "#{request.original_url}/minesweeper" %>" class="play-button">PLAY</a>
+            <a class="play-button mine-launch-button">PLAY</a>
           </div>
         </div>
         <div class="overlay-mine overlay hidden"></div>
@@ -99,7 +100,7 @@
             <p>Find a word within the word. Workout the anagram and you're a winner.</p>
           </div>
           <div class = "play-button-container">
-            <a href="<%= "#{request.original_url}/anagram" %>" class="play-button">PLAY</a>
+            <a class="play-button anagram-launch-button">PLAY</a>
           </div>
         </div>
         <div class="overlay-anagram overlay hidden"></div>
@@ -119,7 +120,7 @@
             <p>Roll the dice to score points. After each turn, choose to bank your points or keep rolling. Roll a 6 and the points are gone. First player to score 100 is the winner.</p>
           </div>
           <div class = "play-button-container">
-            <a href="<%= "#{request.original_url}/pig" %>" class="play-button">PLAY</a>
+            <a class="play-button pig-launch-button">PLAY</a>
           </div>
         </div>
         <div class="overlay-pig overlay hidden"></div>

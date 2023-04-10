@@ -33,7 +33,7 @@ document.addEventListener("keydown", function (e) {
 });
 
 const launchHangman = function () {
-  window.location.href = "hangman";
+  window.location.href = "/games/hangman";
 }
 
 if (hangmanLaunchButton) {
@@ -45,6 +45,7 @@ const flashWindow = document.querySelector(".flash-window");
 const showFlash = document.querySelector(".show-flash");
 const closeFlash = document.querySelector(".close-flash");
 const overlayFlash = document.querySelector(".overlay-flash");
+const flashLaunchButton = document.querySelector(".flash-launch-button");
 
 const closeFlashWindow = function() {
   flashWindow.classList.add("hidden");
@@ -73,11 +74,19 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+const launchFlash = function () {
+  window.location.href = "/games/flash";
+}
+
+if (flashLaunchButton) {
+  flashLaunchButton.addEventListener("click", launchFlash)
+}
 
 const oxWindow = document.querySelector(".ox-window");
 const showOx = document.querySelector(".show-ox");
 const closeOx = document.querySelector(".close-ox");
 const overlayOx = document.querySelector(".overlay-ox");
+const oxLaunchButton = document.querySelector(".ox-launch-button");
 
 const closeOxWindow = function() {
   oxWindow.classList.add("hidden");
@@ -107,11 +116,19 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+const launchOx = function () {
+  window.location.href = "/games/oandx";
+}
+
+if (oxLaunchButton) {
+  oxLaunchButton.addEventListener("click", launchOx)
+}
 
 const mineWindow = document.querySelector(".mine-window");
 const showMine = document.querySelector(".show-mine");
 const closeMine = document.querySelector(".close-mine");
 const overlayMine = document.querySelector(".overlay-mine");
+const mineLaunchButton = document.querySelector(".mine-launch-button");
 
 const closeMineWindow = function() {
   mineWindow.classList.add("hidden");
@@ -141,11 +158,19 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+const launchMine = function () {
+  window.location.href = "/games/minesweeper";
+}
+
+if (mineLaunchButton) {
+  mineLaunchButton.addEventListener("click", launchMine)
+}
 
 const anagramWindow = document.querySelector(".anagram-window");
 const showAnagram = document.querySelector(".show-anagram");
 const closeAnagram = document.querySelector(".close-anagram");
 const overlayAnagram = document.querySelector(".overlay-anagram");
+const anagramLaunchButton = document.querySelector(".anagram-launch-button");
 
 const closeAnagramWindow = function() {
   anagramWindow.classList.add("hidden");
@@ -175,11 +200,19 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+const launchAnagram = function () {
+  window.location.href = "/games/anagram";
+}
+
+if (anagramLaunchButton) {
+  anagramLaunchButton.addEventListener("click", launchAnagram)
+}
 
 const pigWindow = document.querySelector(".pig-window");
 const showPig = document.querySelector(".show-pig");
 const closePig = document.querySelector(".close-pig");
 const overlayPig = document.querySelector(".overlay-pig");
+const pigLaunchButton = document.querySelector(".pig-launch-button");
 
 const closePigWindow = function() {
   pigWindow.classList.add("hidden");
@@ -209,6 +242,13 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+const launchPig = function () {
+  window.location.href = "/games/pig";
+}
+
+if (pigLaunchButton) {
+  pigLaunchButton.addEventListener("click", launchPig)
+}
 
 const playButton = document.querySelectorAll(".play-button");
 
