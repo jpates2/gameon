@@ -38,6 +38,8 @@ const initialiseOx = function () {
   oxPlayer1.innerText = "PLAYER X";
   oxPlayer0.classList.remove("ox-winner");
   oxPlayer1.classList.remove("ox-winner");
+  oxPlayer0.classList.remove("ox-draw");
+  oxPlayer1.classList.remove("ox-draw");
   oxPlayer0.classList.add("ox-active-player");
   oxPlayer1.classList.remove("ox-active-player");
   oxPlayAgainButton.classList.add("hidden");
@@ -68,6 +70,7 @@ const oxClickBoard = function (e) {
     const oxValue = activeOxPlayer === 0 ? "O" : "X";
     oxTurn(oxCell, oxValue);
     oxArray[parseInt(e.target.parentElement.rowIndex)][parseInt(e.target.cellIndex)] = oxValue;
+    checkOxDraw();
     checkOxWinner();
     switchPlayerOx();
   }
@@ -91,6 +94,24 @@ const checkOxWinner = function () {
       endOxGame();
     }
   }
+}
+
+const boxArray = Array.from(oxBoardBox);
+console.log(boxArray);
+
+const checkOxDraw = function () {
+  if (boxArray.every(box => box.innerText !== "")) {
+    drawOxGame();
+  }
+}
+
+const drawOxGame = function () {
+  document.querySelector(`.ox-player-0`).textContent = "IT'S A DRAW";
+  document.querySelector(`.ox-player-1`).textContent = "IT'S A DRAW";
+  document.querySelector(`.ox-player-0`).classList.add("ox-draw");
+  document.querySelector(`.ox-player-1`).classList.add("ox-draw");
+  oxPlaying = false;
+  oxPlayAgainButton.classList.remove("hidden");
 }
 
 const endOxGame = function () {
