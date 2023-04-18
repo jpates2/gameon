@@ -13,16 +13,22 @@ const hangmanGameResultContainer = document.querySelector(".hangman-game-result-
 let correctLetters = [];
 let incorrectLetters = [];
 let hangmanLivesStart = 6;
+let playing;
+
+// while (hangmanLivesStart > 0) {
+//   playing = true;
+// }
 
 const hangmanWordbank = ["broken", "necessary", "rocket", "trampoline", "firework"];
 
 let randomHangman = hangmanWordbank[Math.floor(Math.random() * hangmanWordbank.length)].toUpperCase();
-// console.log(randomHangman);
 
 const startHangman = function() {
   hangmanPlayButtonContainer.classList.add("fade-out");
   hangmanGame.classList.add("fade-in");
   hangmanGame.classList.remove("hidden-delay");
+  playing = true;
+
   displayHangmanWord();
   displayLives();
   addHangmanEvents();
@@ -34,7 +40,6 @@ const startHangman = function() {
 
 if (hangmanPlayButton) {
   hangmanPlayButton.addEventListener("click", startHangman);
-
 }
 
 function generateLetters() {
@@ -96,21 +101,27 @@ const hangmanAlphabetLetterY = document.querySelector(".hangman-letter-y");
 const hangmanAlphabetLetterZ = document.querySelector(".hangman-letter-z");
 
 function hangmanLetterPick(chosenHangmanLetter) {
-  if (randomHangman.includes(chosenHangmanLetter)) {
-    correctLetters.push(chosenHangmanLetter);
-    document.querySelector(`.hangman-letter-${chosenHangmanLetter.toLowerCase()}`).classList.add("hangman-alphabet-letter-correct");
-    document.querySelector(`.hangman-letter-${chosenHangmanLetter.toLowerCase()}`).disabled = true;
-
+  if (hangmanLivesStart > 1) {
+    if (randomHangman.includes(chosenHangmanLetter)) {
+      correctLetters.push(chosenHangmanLetter);
+      document.querySelector(`.hangman-letter-${chosenHangmanLetter.toLowerCase()}`).classList.add("hangman-alphabet-letter-correct");
+      document.querySelector(`.hangman-letter-${chosenHangmanLetter.toLowerCase()}`).disabled = true;
+    } else {
+      incorrectLetters.push(chosenHangmanLetter);
+      document.querySelector(`.hangman-letter-${chosenHangmanLetter.toLowerCase()}`).classList.add("hangman-alphabet-letter-incorrect")
+      document.querySelector(`.hangman-letter-${chosenHangmanLetter.toLowerCase()}`).disabled = true;
+      hangmanLivesStart--;
+      hangmanLives.innerHTML = "";
+      displayLives();
+    }
+    displayHangmanWord();
+    (`alphabet-letter-${chosenHangmanLetter.toLowerCase()}`)
   } else {
-    incorrectLetters.push(chosenHangmanLetter);
-    document.querySelector(`.hangman-letter-${chosenHangmanLetter.toLowerCase()}`).classList.add("hangman-alphabet-letter-incorrect")
-    document.querySelector(`.hangman-letter-${chosenHangmanLetter.toLowerCase()}`).disabled = true;
-    hangmanLivesStart--;
     hangmanLives.innerHTML = "";
-    displayLives();
+    // hangmanLivesStart.classList.add("hidden");
+    hangmanLives.insertAdjacentHTML("afterend", `<div class = hangman-game-result-container><p class = "hangman-game-lose">YOU LOSE!</p></div>`)
+    hangmanPlayAgainButton.classList.remove("hidden");
   }
-  displayHangmanWord();
-  (`alphabet-letter-${chosenHangmanLetter.toLowerCase()}`)
 }
 
 
