@@ -1,3 +1,15 @@
+const gamesLaunchButton = document.querySelector(".games-launch-button");
+
+const launchGames = function () {
+  window.location.href = "/games";
+  window.location.href.reload();
+}
+
+if (gamesLaunchButton) {
+  gamesLaunchButton.addEventListener("click", launchGames)
+}
+
+
 const hangmanWindow = document.querySelector(".hangman-window");
 const showHangman = document.querySelector(".show-hangman");
 const closeHangman = document.querySelector(".close-hangman");
