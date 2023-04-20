@@ -2,7 +2,7 @@ const gamesLaunchButton = document.querySelector(".games-launch-button");
 
 const launchGames = function () {
   window.location.href = "/games";
-  window.location.href.reload();
+  // window.location.reload();
 }
 
 if (gamesLaunchButton) {
