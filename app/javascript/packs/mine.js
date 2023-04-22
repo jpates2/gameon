@@ -47,7 +47,7 @@ const placeBombs = function() {
 
 let currentBomb;
 
-function placeBomb() {
+const placeBomb = function() {
   let bombs = [];
 
   for (i = 0; i < 10; i++) {
@@ -55,10 +55,23 @@ function placeBomb() {
   }
 
   bombs.forEach (function(bomb) {
-    // document.getElementById(`cell-${bomb[0]}-${bomb[1]}`).textContent = "b";
-    document.getElementById(`cell-${bomb[0]}-${bomb[1]}`).classList.add("mineBomb");
-    }
-  )
+    currentBomb = document.getElementById(`cell-${bomb[0]}-${bomb[1]}`);
+    currentBomb.textContent = "💣";
+    currentBomb.classList.add("mine-bomb-hidden");
+  })
+
+  const mineBoard = document.querySelectorAll(".mine-board-box");
+
+  const revealMineBomb = function (e) {
+    console.log("bomb test");
+    // currentBomb.classList.remove("mine-bomb-hidden");
+    // const mineCell = e.target;
+    // console.log(bombs[parseInt(e.target.parentElement.rowIndex)][parseInt(e.target.cellIndex)]);
+    // bombs[parseInt(e.target.parentElement.rowIndex)][parseInt(e.target.cellIndex)].classList.remove("mine-bomb-hidden");
+  }
+
+  for (let i = 0; i < mineBoard.length; i++)
+    mineBoard[i].addEventListener("click", revealMineBomb);
 
   console.log(bombs);
   console.log(`cell-${bombs[0][0]}-${bombs[0][1]}`);
