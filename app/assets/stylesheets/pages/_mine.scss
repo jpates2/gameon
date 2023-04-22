@@ -70,6 +70,16 @@
   width: 4vh;
 }
 
-.mine-bomb-hidden {
-  visibility: hidden;
+.mine-cell-bomb {
+  background-color: red;
+  // visibility: hidden;
 }
+
+.mine-cell-number {
+  background-color: blue;
+  // visibility: hidden;
+}
+
+// .mine-cell-hidden {
+//   visibility: none;
+// }
