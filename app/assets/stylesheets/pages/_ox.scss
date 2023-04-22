@@ -68,12 +68,6 @@
   width: 80vw;
 }
 
-td {
-  // border: 1px solid white;
-  height: 14vh;
-  width: 14vh;
-}
-
 #ox-top-left {
   border-right: 8px solid white;
   border-bottom: 8px solid white;
@@ -116,6 +110,8 @@ td {
   color: white;
   font-size: 64px;
   text-align: center;
+  height: 14vh;
+  width: 14vh;
 }
 
 .ox-winner {
