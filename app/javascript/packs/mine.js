@@ -63,17 +63,44 @@ const placeBomb = function() {
 
 const revealMineCell = function (e) {
   const mineCell = e.target;
+  const mineRow = mineCell.parentElement.rowIndex;
+  const mineCol = mineCell.cellIndex
+  const adjCells = [
+    `cell-${mineRow - 1}-${mineCol - 1}`,
+    `cell-${mineRow}-${mineCol - 1}`,
+    `cell-${mineRow + 1}-${mineCol - 1}`,
+    `cell-${mineRow - 1}-${mineCol}`,
+    `cell-${mineRow + 1}-${mineCol}`,
+    `cell-${mineRow - 1}-${mineCol + 1}`,
+    `cell-${mineRow}-${mineCol + 1}`,
+    `cell-${mineRow + 1}-${mineCol + 1}`
+  ]
+
+  console.log(adjCells);
 
   if (mineCell.classList.contains("mine-cell-bomb")) {
     mineCell.textContent = "💣";
   } else {
-    mineCell.textContent = "1";
+    let numMineBombs = 0;
+    console.log(mineRow, mineCol);
+
+    adjCells.forEach (function (cell) {
+      if (!cell.includes("--") && !cell.includes("10")) {
+      // console.log(cell);
+        if (document.getElementById(cell).classList.contains("mine-cell-bomb")) {
+          numMineBombs ++;
+        }
+      }
+    })
+    // console.log(numMineBombs);
+
+    mineCell.textContent = numMineBombs;
     mineCell.classList.add("mine-cell-number")
   }
 
   // document.getElementById(`cell-${mineCell.parentElement.rowIndex}-${mineCell.cellIndex}`).classList.remove("mine-cell-hidden")
   // mineCell.classList.remove("mine-cell-hidden");
 
-  console.log(mineCell);
-  console.log(mineCell.parentElement.rowIndex, mineCell.cellIndex);
+  // console.log(mineCell);
+  // console.log(mineCell.parentElement.rowIndex, mineCell.cellIndex);
 }
