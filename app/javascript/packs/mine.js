@@ -41,13 +41,11 @@ const buildMineTable = function() {
 
   for (let i = 0; i < mineBoard.length; i++)
     mineBoard[i].addEventListener("click", revealMineCell);
-
 }
 
 let currentBomb;
 
 const placeBomb = function() {
-
   for (i = 0; i < 10; i++) {
     bombs.push([Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)]);
   }
@@ -56,9 +54,6 @@ const placeBomb = function() {
     currentBomb = document.getElementById(`cell-${bomb[0]}-${bomb[1]}`);
     currentBomb.classList.add("mine-cell-bomb");
   })
-
-  console.log(bombs);
-  console.log(`cell-${bombs[0][0]}-${bombs[0][1]}`);
 }
 
 const revealMineCell = function (e) {
@@ -76,23 +71,20 @@ const revealMineCell = function (e) {
     `cell-${mineRow + 1}-${mineCol + 1}`
   ]
 
-  console.log(adjCells);
-
   if (mineCell.classList.contains("mine-cell-bomb")) {
     mineCell.textContent = "💣";
+    mineCell.classList.add("mine-cell-bomb-colour");
   } else {
     let numMineBombs = 0;
-    console.log(mineRow, mineCol);
+    mineCell.classList.add("mine-cell-number");
 
     adjCells.forEach (function (cell) {
       if (!cell.includes("--") && !cell.includes("10")) {
-      // console.log(cell);
         if (document.getElementById(cell).classList.contains("mine-cell-bomb")) {
           numMineBombs ++;
         }
       }
     })
-    // console.log(numMineBombs);
 
     mineCell.textContent = numMineBombs;
     mineCell.classList.add("mine-cell-number")
