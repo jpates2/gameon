@@ -3,15 +3,15 @@ const minePlayButtonContainer = document.querySelector(".mine-play-button-contai
 const mineGame = document.querySelector(".mine-game");
 const mineTable = document.querySelector(".mine-table");
 
-let playing, bomb;
+let minePlaying, bomb;
 let bombs = [];
 
 const startMine = function() {
   minePlayButtonContainer.classList.add("fade-out");
   mineGame.classList.add("fade-in");
   mineGame.classList.remove("hidden-delay");
-  playing = true;
-  bomb = "💣";
+  minePlaying = true;
+  // bomb = "💣";
   buildMineTable();
 }
 
@@ -57,42 +57,48 @@ const placeBomb = function() {
 }
 
 const revealMineCell = function (e) {
-  const mineCell = e.target;
-  const mineRow = mineCell.parentElement.rowIndex;
-  const mineCol = mineCell.cellIndex
-  const adjCells = [
-    `cell-${mineRow - 1}-${mineCol - 1}`,
-    `cell-${mineRow}-${mineCol - 1}`,
-    `cell-${mineRow + 1}-${mineCol - 1}`,
-    `cell-${mineRow - 1}-${mineCol}`,
-    `cell-${mineRow + 1}-${mineCol}`,
-    `cell-${mineRow - 1}-${mineCol + 1}`,
-    `cell-${mineRow}-${mineCol + 1}`,
-    `cell-${mineRow + 1}-${mineCol + 1}`
-  ]
+  if (minePlaying) {
+    const mineCell = e.target;
+    const mineRow = mineCell.parentElement.rowIndex;
+    const mineCol = mineCell.cellIndex
+    const adjCells = [
+      `cell-${mineRow - 1}-${mineCol - 1}`,
+      `cell-${mineRow}-${mineCol - 1}`,
+      `cell-${mineRow + 1}-${mineCol - 1}`,
+      `cell-${mineRow - 1}-${mineCol}`,
+      `cell-${mineRow + 1}-${mineCol}`,
+      `cell-${mineRow - 1}-${mineCol + 1}`,
+      `cell-${mineRow}-${mineCol + 1}`,
+      `cell-${mineRow + 1}-${mineCol + 1}`
+    ]
 
-  if (mineCell.classList.contains("mine-cell-bomb")) {
-    mineCell.textContent = "💣";
-    mineCell.classList.add("mine-cell-bomb-colour");
-  } else {
-    let numMineBombs = 0;
-    mineCell.classList.add("mine-cell-number");
+    if (mineCell.classList.contains("mine-cell-bomb")) {
+      mineCell.textContent = "💣";
+      mineCell.classList.add("mine-cell-bomb-colour");
+      endMineGame();
+    } else {
+      let numMineBombs = 0;
+      mineCell.classList.add("mine-cell-number");
 
-    adjCells.forEach (function (cell) {
-      if (!cell.includes("--") && !cell.includes("10")) {
-        if (document.getElementById(cell).classList.contains("mine-cell-bomb")) {
-          numMineBombs ++;
+      adjCells.forEach (function (cell) {
+        if (!cell.includes("--") && !cell.includes("10")) {
+          if (document.getElementById(cell).classList.contains("mine-cell-bomb")) {
+            numMineBombs ++;
+          }
         }
-      }
-    })
+      })
 
-    mineCell.textContent = numMineBombs;
-    mineCell.classList.add("mine-cell-number")
+      mineCell.textContent = numMineBombs;
+      mineCell.classList.add("mine-cell-number")
+    }
   }
-
   // document.getElementById(`cell-${mineCell.parentElement.rowIndex}-${mineCell.cellIndex}`).classList.remove("mine-cell-hidden")
   // mineCell.classList.remove("mine-cell-hidden");
 
   // console.log(mineCell);
   // console.log(mineCell.parentElement.rowIndex, mineCell.cellIndex);
+}
+
+const endMineGame = function () {
+  minePlaying = false;
 }
