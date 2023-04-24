@@ -62,7 +62,8 @@
 }
 
 .mine-board {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
 }
 
 .mine-board-box {
@@ -76,20 +77,34 @@
 
 .mine-cell-bomb-colour {
   background-color: #DC0073;
-  // visibility: hidden;
 }
 
 .mine-cell-number {
   background-color: #00A1E4;
-  // visibility: hidden;
 }
 
-// .mine-cell-hidden {
-//   visibility: none;
-// }
+.mine-table-container {
+  display: flex;
+  justify-content: center;
+}
+
+.mine-result {
+  color: #DC0073;
+  font-size: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.mine-result-left {
+  justify-content: left;
+}
+
+.mine-result-left {
+  justify-content: right;
+}
 
 .mine-play-again-button {
-  color: #DC0073;
+  color: #00A1E4;
   font-size: 40px;
   margin-top: 4vh;
   animation: blink 3s linear infinite;
