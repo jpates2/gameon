@@ -2,6 +2,7 @@ const minePlayButton = document.querySelector(".mine-play-button");
 const minePlayButtonContainer = document.querySelector(".mine-play-button-container");
 const mineGame = document.querySelector(".mine-game");
 const mineTable = document.querySelector(".mine-table");
+const minePlayAgainButton = document.querySelector(".mine-play-again-button");
 
 let minePlaying, bomb;
 let bombs = [];
@@ -101,4 +102,13 @@ const revealMineCell = function (e) {
 
 const endMineGame = function () {
   minePlaying = false;
+  minePlayAgainButton.classList.remove("hidden");
+}
+
+const winMineGame = function () {
+
+}
+
+const loseMineGame = function () {
+
 }
