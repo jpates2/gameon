@@ -2,11 +2,12 @@ const minePlayButton = document.querySelector(".mine-play-button");
 const minePlayButtonContainer = document.querySelector(".mine-play-button-container");
 const mineGame = document.querySelector(".mine-game");
 const mineTable = document.querySelector(".mine-table");
+const mineTableContainer = document.querySelector(".mine-table-container");
 const mineResultLeft = document.querySelector(".mine-result-left");
 const mineResultRight = document.querySelector(".mine-result-right");
 const minePlayAgainButton = document.querySelector(".mine-play-again-button");
 
-let minePlaying, bomb;
+let minePlaying, bomb, mineTurns;
 let bombs = [];
 
 const startMine = function() {
@@ -14,6 +15,7 @@ const startMine = function() {
   mineGame.classList.add("fade-in");
   mineGame.classList.remove("hidden-delay");
   minePlaying = true;
+  mineTurns = 0;
   // bomb = "💣";
   buildMineTable();
 }
@@ -58,8 +60,6 @@ const placeBomb = function() {
     currentBomb.classList.add("mine-cell-bomb");
   })
 }
-
-let mineTurns = 0;
 
 const revealMineCell = function (e) {
   mineTurns ++;
@@ -129,4 +129,17 @@ const winMineGame = function () {
 const loseMineGame = function () {
   mineResultLeft.textContent = "GAME";
   mineResultRight.textContent = "OVER";
+}
+
+const restartMine = function () {
+  mineResultLeft.textContent = "";
+  mineResultRight.textContent = "";
+  mineTable.textContent = "";
+  minePlayAgainButton.classList.add("hidden");
+  startMine();
+}
+
+
+if (minePlayAgainButton) {
+  minePlayAgainButton.addEventListener("click", restartMine)
 }
