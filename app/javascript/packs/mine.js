@@ -7,7 +7,8 @@ const mineResultLeft = document.querySelector(".mine-result-left");
 const mineResultRight = document.querySelector(".mine-result-right");
 const minePlayAgainButton = document.querySelector(".mine-play-again-button");
 
-let minePlaying, bomb, mineTurns;
+let minePlaying, bomb, mineCurrent;
+let mineTurns = 0;
 let bombs = [];
 
 const startMine = function() {
@@ -44,8 +45,10 @@ const buildMineTable = function() {
 
   const mineBoard = document.querySelectorAll(".mine-board-box");
 
-  for (let i = 0; i < mineBoard.length; i++)
+  for (let i = 0; i < mineBoard.length; i++) {
+    mineCurrent = mineBoard[i];
     mineBoard[i].addEventListener("click", revealMineCell, true);
+  }
 }
 
 let currentBomb;
@@ -78,6 +81,7 @@ const revealMineCell = function (e) {
       `cell-${mineRow}-${mineCol + 1}`,
       `cell-${mineRow + 1}-${mineCol + 1}`
     ]
+    mineCurrent.removeEventListener("click", revealMineCell, true);
 
     if (mineCell.classList.contains("mine-cell-bomb")) {
       mineCell.textContent = "💣";
@@ -85,7 +89,6 @@ const revealMineCell = function (e) {
       endMineGame();
       loseMineGame();
     } else {
-      mineCell.removeEventListener("click", revealMineCell, true);
       let numMineBombs = 0;
       // mineCell.classList.add("mine-cell-number");
 
@@ -96,12 +99,19 @@ const revealMineCell = function (e) {
           }
         }
       })
-
       console.log(mineTurns);
 
       mineCell.textContent = numMineBombs;
       mineCell.classList.add("mine-cell-number");
     }
+
+    // const mineBoard = document.querySelectorAll(".mine-board-box");
+
+    // mineBoard.forEach(function (cell) {
+    //   if (cell.textContent != "") {
+    //     mineTurns ++;
+    //   }
+    // })
 
     if (mineTurns >= (100 - bombs.length)) {
       endMineGame();
@@ -138,7 +148,6 @@ const restartMine = function () {
   minePlayAgainButton.classList.add("hidden");
   startMine();
 }
-
 
 if (minePlayAgainButton) {
   minePlayAgainButton.addEventListener("click", restartMine)
