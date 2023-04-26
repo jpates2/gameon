@@ -9,6 +9,7 @@ const minePlayAgainButton = document.querySelector(".mine-play-again-button");
 
 let minePlaying, bomb, mineCurrent;
 let mineTurns = 0;
+let mineClicks = 0;
 let bombs = [];
 
 const startMine = function() {
@@ -47,15 +48,15 @@ const buildMineTable = function() {
 
   for (let i = 0; i < mineBoard.length; i++) {
     mineCurrent = mineBoard[i];
-    mineBoard[i].addEventListener("click", revealMineCell, true);
+    mineCurrent.addEventListener("click", revealMineCell);
   }
 }
 
 let currentBomb;
 
 const placeBomb = function() {
-  for (i = 0; i < 10; i++) {
-    bombs.push([Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)]);
+  for (i = 0; i < 1; i++) {
+    bombs.push([Math.floor(Math.random() * 1), Math.floor(Math.random() * 1)]);
   }
 
   bombs.forEach (function(bomb) {
@@ -65,7 +66,6 @@ const placeBomb = function() {
 }
 
 const revealMineCell = function (e) {
-  mineTurns ++;
 
   if (minePlaying) {
     const mineCell = e.currentTarget;
@@ -81,14 +81,15 @@ const revealMineCell = function (e) {
       `cell-${mineRow}-${mineCol + 1}`,
       `cell-${mineRow + 1}-${mineCol + 1}`
     ]
-    mineCurrent.removeEventListener("click", revealMineCell, true);
 
     if (mineCell.classList.contains("mine-cell-bomb")) {
+      mineTurns ++;
       mineCell.textContent = "💣";
       mineCell.classList.add("mine-cell-bomb-colour");
       endMineGame();
       loseMineGame();
     } else {
+      mineTurns ++;
       let numMineBombs = 0;
       // mineCell.classList.add("mine-cell-number");
 
@@ -105,19 +106,24 @@ const revealMineCell = function (e) {
       mineCell.classList.add("mine-cell-number");
     }
 
-    // const mineBoard = document.querySelectorAll(".mine-board-box");
+    const mineBoard = document.querySelectorAll(".mine-board-box");
 
-    // mineBoard.forEach(function (cell) {
-    //   if (cell.textContent != "") {
-    //     mineTurns ++;
-    //   }
-    // })
+    mineClicks = 0;
+    mineBoard.forEach(function (cell) {
+      if (cell.classList.contains("mine-cell-bomb") || cell.classList.contains("mine-cell-number")) {
+        mineClicks ++;
+      }
+    })
 
-    if (mineTurns >= (100 - bombs.length)) {
+    if (mineClicks > (100 - bombs.length)) {
       endMineGame();
       winMineGame();
     }
   }
+
+  console.log(mineClicks);
+
+  mineCurrent.removeEventListener("click", revealMineCell);
 
   // document.getElementById(`cell-${mineCell.parentElement.rowIndex}-${mineCell.cellIndex}`).classList.remove("mine-cell-hidden")
   // mineCell.classList.remove("mine-cell-hidden");
