@@ -55,8 +55,8 @@ const buildMineTable = function() {
 let currentBomb;
 
 const placeBomb = function() {
-  for (i = 0; i < 1; i++) {
-    bombs.push([Math.floor(Math.random() * 1), Math.floor(Math.random() * 1)]);
+  for (i = 0; i < 10; i++) {
+    bombs.push([Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)]);
   }
 
   bombs.forEach (function(bomb) {
@@ -66,11 +66,10 @@ const placeBomb = function() {
 }
 
 const revealMineCell = function (e) {
-
   if (minePlaying) {
     const mineCell = e.currentTarget;
     const mineRow = mineCell.parentElement.rowIndex;
-    const mineCol = mineCell.cellIndex
+    const mineCol = mineCell.cellIndex;
     const adjCells = [
       `cell-${mineRow - 1}-${mineCol - 1}`,
       `cell-${mineRow}-${mineCol - 1}`,
@@ -106,10 +105,10 @@ const revealMineCell = function (e) {
       mineCell.classList.add("mine-cell-number");
     }
 
-    const mineBoard = document.querySelectorAll(".mine-board-box");
+    const mineBoardClicks = document.querySelectorAll(".mine-board-box");
 
     mineClicks = 0;
-    mineBoard.forEach(function (cell) {
+    mineBoardClicks.forEach(function (cell) {
       if (cell.classList.contains("mine-cell-bomb") || cell.classList.contains("mine-cell-number")) {
         mineClicks ++;
       }
@@ -119,11 +118,12 @@ const revealMineCell = function (e) {
       endMineGame();
       winMineGame();
     }
+
+    mineCell.removeEventListener("click", revealMineCell);
   }
 
   console.log(mineClicks);
 
-  mineCurrent.removeEventListener("click", revealMineCell);
 
   // document.getElementById(`cell-${mineCell.parentElement.rowIndex}-${mineCell.cellIndex}`).classList.remove("mine-cell-hidden")
   // mineCell.classList.remove("mine-cell-hidden");
