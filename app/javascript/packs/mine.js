@@ -7,9 +7,7 @@ const mineResultLeft = document.querySelector(".mine-result-left");
 const mineResultRight = document.querySelector(".mine-result-right");
 const minePlayAgainButton = document.querySelector(".mine-play-again-button");
 
-let minePlaying, bomb, mineCurrent;
-let mineTurns = 0;
-let mineClicks = 0;
+let minePlaying, bomb, mineCurrent, minePopulated;
 let bombs = [];
 
 const startMine = function() {
@@ -18,7 +16,7 @@ const startMine = function() {
   mineGame.classList.remove("hidden-delay");
   minePlaying = true;
   bombs = [];
-  mineTurns = 0;
+  minePopulated = 0;
   buildMineTable();
 }
 
@@ -67,6 +65,7 @@ const placeBomb = function() {
 
 const revealMineCell = function (e) {
   if (minePlaying) {
+
     const mineCell = e.currentTarget;
     const mineRow = mineCell.parentElement.rowIndex;
     const mineCol = mineCell.cellIndex;
@@ -82,15 +81,12 @@ const revealMineCell = function (e) {
     ]
 
     if (mineCell.classList.contains("mine-cell-bomb")) {
-      mineTurns ++;
       mineCell.textContent = "💣";
       mineCell.classList.add("mine-cell-bomb-colour");
       endMineGame();
       loseMineGame();
     } else {
-      mineTurns ++;
       let numMineBombs = 0;
-      // mineCell.classList.add("mine-cell-number");
 
       adjCells.forEach (function (cell) {
         if (!cell.includes("--") && !cell.includes("10")) {
@@ -99,37 +95,29 @@ const revealMineCell = function (e) {
           }
         }
       })
-      console.log(mineTurns);
 
       mineCell.textContent = numMineBombs;
       mineCell.classList.add("mine-cell-number");
     }
 
-    const mineBoardClicks = document.querySelectorAll(".mine-board-box");
+    const mineBoardCells = document.querySelectorAll(".mine-board-box");
 
-    mineClicks = 0;
-    mineBoardClicks.forEach(function (cell) {
+    minePopulated = 0;
+    mineBoardCells.forEach(function (cell) {
       if (cell.classList.contains("mine-cell-bomb") || cell.classList.contains("mine-cell-number")) {
-        mineClicks ++;
+        minePopulated ++;
       }
     })
 
-    if (mineClicks > (100 - bombs.length)) {
+    if (minePopulated >= 100) {
       endMineGame();
       winMineGame();
     }
 
-    mineCell.removeEventListener("click", revealMineCell);
+    mineCurrent.removeEventListener("click", revealMineCell);
   }
-
-  console.log(mineClicks);
-
-
-  // document.getElementById(`cell-${mineCell.parentElement.rowIndex}-${mineCell.cellIndex}`).classList.remove("mine-cell-hidden")
-  // mineCell.classList.remove("mine-cell-hidden");
-
-  // console.log(mineCell);
-  // console.log(mineCell.parentElement.rowIndex, mineCell.cellIndex);
+  console.log(`bombs: ${Array.from(new Set(bombs)).length}`);
+  console.log(`clicks: ${minePopulated}`);
 }
 
 const endMineGame = function () {
