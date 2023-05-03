@@ -98,6 +98,8 @@ const revealMineCell = function (e) {
 
       mineCell.textContent = numMineBombs;
       mineCell.classList.add("mine-cell-number");
+      mineCell.removeEventListener("click", revealMineCell); // can reclick on cells but last well works
+      // mineCurrent.removeEventListener("click", revealMineCell); can't reclick on cell but last cell doesn't work
     }
 
     const mineBoardCells = document.querySelectorAll(".mine-board-box");
@@ -114,7 +116,6 @@ const revealMineCell = function (e) {
       winMineGame();
     }
 
-    mineCurrent.removeEventListener("click", revealMineCell);
   }
   console.log(`bombs: ${Array.from(new Set(bombs)).length}`);
   console.log(`clicks: ${minePopulated}`);
