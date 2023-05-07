@@ -2,13 +2,16 @@ const gamesLaunchButton = document.querySelector(".games-launch-button");
 
 const launchGames = function () {
   window.location.href = "/games";
-  // window.location.reload();
+  // reload();
 }
+
+// const reload = function () {
+  // window.location.reload();
+// }
 
 if (gamesLaunchButton) {
   gamesLaunchButton.addEventListener("click", launchGames)
 }
-
 
 const hangmanWindow = document.querySelector(".hangman-window");
 const showHangman = document.querySelector(".show-hangman");
