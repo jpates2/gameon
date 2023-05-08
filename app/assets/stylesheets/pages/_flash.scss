@@ -58,11 +58,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -20vh;
+  margin-top: -16vh;
 }
 
 .flash-start-msg {
   color: #DC0073;
   font-size: 104px;
   margin-top: 8vh;
+}
+
+.flash-table {
+  margin-top: -12vh;
+}
+
+.flash-grid {
+  border: 2px solid white;
+  height: 8vh;
+  width: 8vh;
 }
