@@ -14,10 +14,12 @@ const startFlash = function() {
 }
 
 function flashStartMessage() {
-  flashStartMsg.textContent = "GET READY...";
+  // flashStartMsg.textContent = "GET READY...";
+  flashStartMsg.classList.add("fade-in");
+  flashStartMsg.classList.remove("hidden-delay");
 
   setTimeout(function(){
-    flashStartMsg.textContent = "";
+    flashStartMsg.classList.add("hidden");
   }, 3000);
 }
 
