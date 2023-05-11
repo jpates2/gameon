@@ -15,10 +15,6 @@ let incorrectLetters = [];
 let hangmanLivesStart = 6;
 let playing;
 
-// while (hangmanLivesStart > 0) {
-//   playing = true;
-// }
-
 const hangmanWordbank = ["broken", "necessary", "rocket", "trampoline", "firework"];
 
 let randomHangman = hangmanWordbank[Math.floor(Math.random() * hangmanWordbank.length)].toUpperCase();
