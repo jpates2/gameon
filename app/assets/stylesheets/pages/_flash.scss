@@ -79,11 +79,21 @@
 
 .flash-score-container {
   color: white;
-  font-size: 32px;
+  font-size: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -8vh;
+}
+
+.flash-score {
+  font-size: 80px;
 }
 
 .flash-game {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  // flex-direction: row;
   width: 80%;
+  height: 80%;
 }

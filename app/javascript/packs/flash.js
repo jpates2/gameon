@@ -4,6 +4,7 @@ const flashPlayButtonContainer = document.querySelector(".flash-play-button-cont
 const flashGame = document.querySelector(".flash-game");
 const flashMsg = document.querySelector(".flash-msg");
 const flashTable = document.querySelector(".flash-table");
+const flashScoreContainer = document.querySelector(".flash-score-container");
 
 const startFlash = function() {
   flashPlayButtonContainer.classList.add("fade-out");
@@ -34,6 +35,9 @@ function flashStartMessage() {
 
     setTimeout(function () {
       buildFlashGrid();
+      flashScoreContainer.insertAdjacentHTML("afterbegin",
+        `<p class = "flash-score-header">SCORE</p>
+        <p class = "flash-score">0</p>`)
     }, 4000);
   }
 
