@@ -2,7 +2,7 @@ const flashPlayButton = document.querySelector(".flash-play-button");
 const flashPlayAgainButton = document.querySelector(".flash-play-again-button");
 const flashPlayButtonContainer = document.querySelector(".flash-play-button-container");
 const flashGame = document.querySelector(".flash-game");
-const flashStartMsg = document.querySelector(".flash-start-msg");
+const flashMsg = document.querySelector(".flash-msg");
 const flashTable = document.querySelector(".flash-table");
 
 const startFlash = function() {
@@ -10,18 +10,32 @@ const startFlash = function() {
   flashGame.classList.add("fade-in");
   flashGame.classList.remove("hidden-delay");
   flashStartMessage();
-  buildFlashGrid();
 }
 
 function flashStartMessage() {
   // flashStartMsg.textContent = "GET READY...";
-  flashStartMsg.classList.add("fade-in");
-  flashStartMsg.classList.remove("hidden-delay");
+  // flashStartMsg.classList.add("fade-in");
+  // flashStartMsg.classList.remove("hidden-delay");
 
-  setTimeout(function(){
-    flashStartMsg.classList.add("hidden");
-  }, 3000);
-}
+  // setTimeout(function(){
+    //   flashStartMsg.classList.add("hidden");
+    // }, 3000);
+
+    flashMsg.insertAdjacentHTML("afterbegin", `<p class = "flash-start-msg hidden-delay">GET READY...</p>`)
+    const flashStartMsg = document.querySelector(".flash-start-msg");
+
+    setTimeout(function () {
+      flashStartMsg.classList.remove("hidden-delay");
+    }, 1000);
+
+    setTimeout(function () {
+      flashStartMsg.remove();
+    }, 3000);
+
+    setTimeout(function () {
+      buildFlashGrid();
+    }, 4000);
+  }
 
 if (flashPlayButton) {
   flashPlayButton.addEventListener("click", startFlash);
