@@ -5,6 +5,7 @@ const flashGame = document.querySelector(".flash-game");
 const flashMsg = document.querySelector(".flash-msg");
 const flashTable = document.querySelector(".flash-table");
 const flashScoreContainer = document.querySelector(".flash-score-container");
+const flashTimerContainer = document.querySelector(".flash-timer-container");
 
 const startFlash = function() {
   flashPlayButtonContainer.classList.add("fade-out");
@@ -33,11 +34,31 @@ function flashStartMessage() {
       flashStartMsg.remove();
     }, 3000);
 
+
     setTimeout(function () {
       buildFlashGrid();
+
       flashScoreContainer.insertAdjacentHTML("afterbegin",
       `<p class = "flash-score-header">SCORE</p>
       <p class = "flash-score">0</p>`)
+
+      flashTimerContainer.insertAdjacentHTML("afterbegin",
+      `<p class = "flash-timer-header">TIMER</p>
+      <p class = "flash-timer">10</p>`)
+
+      let flashTime = 10;
+      const flashTimer = document.querySelector(".flash-timer");
+
+      const flashCountdown = setInterval(function() {
+        if(flashTime <= 1) {
+          clearInterval(flashCountdown);
+        } else {
+
+        }
+        // flashTimer.textContent = 10 - flashTime;
+        flashTime -= 1;
+        flashTimer.textContent = flashTime;
+      }, 1000);
     }, 4000);
   }
 
@@ -69,18 +90,23 @@ function flashStartMessage() {
   }
 }
 
-const clickFlashCell = function() {
+const clickFlashCell = function () {
   console.log("test");
 }
 
 let rand1, rand2;
 
-const flashColour = function() {
+const insertFlashColour = function () {
+
+}
+
+const flashColour = function () {
   rand1 = Math.floor(Math.random() * 5)
   rand2 = Math.floor(Math.random() * 5)
   flashSelectCell = `cell-${rand1}-${rand2}`
-  // setTimeout(function () {
-  // }, 6000);
+  setTimeout(function () {
+    insertFlashColour();
+  }, 6000);
 
   console.log(flashSelectCell);
 }
