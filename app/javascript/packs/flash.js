@@ -36,28 +36,53 @@ function flashStartMessage() {
     setTimeout(function () {
       buildFlashGrid();
       flashScoreContainer.insertAdjacentHTML("afterbegin",
-        `<p class = "flash-score-header">SCORE</p>
-        <p class = "flash-score">0</p>`)
+      `<p class = "flash-score-header">SCORE</p>
+      <p class = "flash-score">0</p>`)
     }, 4000);
   }
 
-if (flashPlayButton) {
-  flashPlayButton.addEventListener("click", startFlash);
-}
+  if (flashPlayButton) {
+    flashPlayButton.addEventListener("click", startFlash);
+  }
 
-const flashCellID = function(i, j) {
-  return 'flashcell-' + i + '-' + j;
-}
+  const flashCellID = function(i, j) {
+    return 'flashcell-' + i + '-' + j;
+  }
 
-const buildFlashGrid = function() {
-  for (i = 0; i < 5; i++) {
-    let row = document.createElement("tr");
-    for (j = 0; j < 5; j++) {
-      let column = document.createElement("td");
-      column.setAttribute("class", "flash-grid");
-      column.id = flashCellID(i, j);
-      row.appendChild(column);
+  const buildFlashGrid = function() {
+    for (i = 0; i < 5; i++) {
+      let row = document.createElement("tr");
+      for (j = 0; j < 5; j++) {
+        let column = document.createElement("td");
+        column.setAttribute("class", "flash-grid flash-board-box");
+        column.id = flashCellID(i, j);
+        row.appendChild(column);
+      }
+      flashTable.appendChild(row);
     }
-    flashTable.appendChild(row);
+
+  const flashBoard = document.querySelectorAll(".flash-board-box");
+
+  for (let i = 0; i < flashBoard.length; i++) {
+    flashCurrent = flashBoard[i];
+    flashCurrent.addEventListener("click", clickFlashCell);
   }
 }
+
+const clickFlashCell = function() {
+  console.log("test");
+}
+
+let rand1, rand2;
+
+const flashColour = function() {
+  rand1 = Math.floor(Math.random() * 5)
+  rand2 = Math.floor(Math.random() * 5)
+  flashSelectCell = `cell-${rand1}-${rand2}`
+  // setTimeout(function () {
+  // }, 6000);
+
+  console.log(flashSelectCell);
+}
+
+flashColour();
