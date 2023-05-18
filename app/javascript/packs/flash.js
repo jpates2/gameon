@@ -80,7 +80,6 @@ const flashColour = function() {
   rand2 = Math.floor(Math.random() * 5)
   flashSelectCell = `cell-${rand1}-${rand2}`
   // setTimeout(function () {
-    // flashSelectCell
   // }, 6000);
 
   console.log(flashSelectCell);
