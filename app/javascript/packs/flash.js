@@ -7,6 +7,8 @@ const flashTable = document.querySelector(".flash-table");
 const flashScoreContainer = document.querySelector(".flash-score-container");
 const flashTimerContainer = document.querySelector(".flash-timer-container");
 
+let flashTime
+
 const startFlash = function() {
   flashPlayButtonContainer.classList.add("fade-out");
   flashGame.classList.add("fade-in");
@@ -46,19 +48,19 @@ function flashStartMessage() {
       `<p class = "flash-timer-header">TIMER</p>
       <p class = "flash-timer">10</p>`)
 
-      let flashTime = 10;
+      flashTime = 10;
       const flashTimer = document.querySelector(".flash-timer");
 
       const flashCountdown = setInterval(function() {
         if(flashTime <= 1) {
           clearInterval(flashCountdown);
-        } else {
-
         }
-        // flashTimer.textContent = 10 - flashTime;
         flashTime -= 1;
         flashTimer.textContent = flashTime;
       }, 1000);
+
+      flashColour();
+
     }, 4000);
   }
 
@@ -96,19 +98,24 @@ const clickFlashCell = function () {
 
 let rand1, rand2;
 
-const insertFlashColour = function () {
 
-}
 
 const flashColour = function () {
-  rand1 = Math.floor(Math.random() * 5)
-  rand2 = Math.floor(Math.random() * 5)
-  flashSelectCell = `cell-${rand1}-${rand2}`
-  setTimeout(function () {
-    insertFlashColour();
-  }, 6000);
+  let colourTimer = 10;
 
-  console.log(flashSelectCell);
+  const insertFlashColour = setInterval(function() {
+    if (colourTimer <= 1 ) {
+      clearInterval(insertFlashColour);
+    }
+    colourTimer -= 1;
+    rand1 = Math.floor(Math.random() * 5)
+    rand2 = Math.floor(Math.random() * 5)
+    let flashSelectCell = `cell-${rand1}-${rand2}`
+    console.log(flashSelectCell);
+    console.log(colourTimer);
+    // flashSelectCell.style.backgroundColor = "red";
+    // setTimeout(function () {
+    //   flashSelectCell.style.backgroundColor = "black";
+    // }, 900);
+  }, 1000);
 }
-
-flashColour();
