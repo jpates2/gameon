@@ -7,7 +7,8 @@ const flashTable = document.querySelector(".flash-table");
 const flashScoreContainer = document.querySelector(".flash-score-container");
 const flashTimerContainer = document.querySelector(".flash-timer-container");
 
-let flashTime
+let flashTime, flashScore;
+let flashScoreTotal = 0;
 
 const startFlash = function() {
   flashPlayButtonContainer.classList.add("fade-out");
@@ -17,14 +18,6 @@ const startFlash = function() {
 }
 
 function flashStartMessage() {
-  // flashStartMsg.textContent = "GET READY...";
-  // flashStartMsg.classList.add("fade-in");
-  // flashStartMsg.classList.remove("hidden-delay");
-
-  // setTimeout(function(){
-    //   flashStartMsg.classList.add("hidden");
-    // }, 3000);
-
     flashMsg.insertAdjacentHTML("afterbegin", `<p class = "flash-start-msg hidden-delay">GET READY...</p>`)
     const flashStartMsg = document.querySelector(".flash-start-msg");
 
@@ -50,6 +43,7 @@ function flashStartMessage() {
 
       flashTime = 10;
       const flashTimer = document.querySelector(".flash-timer");
+      let flashScore = document.querySelector(".flash-score");
 
       const flashCountdown = setInterval(function() {
         if(flashTime <= 1) {
@@ -92,8 +86,19 @@ function flashStartMessage() {
   }
 }
 
-const clickFlashCell = function () {
-  console.log("test");
+const clickFlashCell = function (e) {
+  const flashCell = `flashcell-${e.target.parentElement.rowIndex}-${e.target.cellIndex}`;
+  if (document.getElementById(flashCell).classList.contains("flash-green")) {
+    flashScoreTotal += 1;
+    console.log(flashScoreTotal);
+    document.querySelector(".flash-score").textContent = flashScoreTotal;
+  } else if (document.getElementById(flashCell).classList.contains("flash-pink")) {
+    flashScoreTotal -= 1;
+    console.log(flashScoreTotal);
+    document.querySelector(".flash-score").textContent = flashScoreTotal;
+  }
+  console.log(flashCell);
+  console.log(flashScoreTotal);
 }
 
 let rand1, rand2;
@@ -109,22 +114,26 @@ const flashColour = function () {
     rand1 = Math.floor(Math.random() * 5)
     rand2 = Math.floor(Math.random() * 5)
     let flashSelectGreen = `flashcell-${rand1}-${rand2}`
-    document.getElementById(flashSelectGreen).style.backgroundColor = "#89FC00"
+    document.getElementById(flashSelectGreen).classList.add("flash-green")
+    // document.getElementById(flashSelectGreen).style.backgroundColor = "#89FC00"
     setTimeout(function () {
-      document.getElementById(flashSelectGreen).style.backgroundColor = "black";
-    }, 500);
+    document.getElementById(flashSelectGreen).classList.remove("flash-green")
+    // document.getElementById(flashSelectGreen).style.backgroundColor = "black";
+    }, 2000);
   }, 1000);
 
   const insertPinkColour = setInterval(function() {
     if (colourTimer <= 1 ) {
       clearInterval(insertPinkColour);
     }
-    rand3 = Math.floor(Math.random() * 5)
-    rand4 = Math.floor(Math.random() * 5)
-    let flashSelectPink = `flashcell-${rand3}-${rand4}`
-    document.getElementById(flashSelectPink).style.backgroundColor = "#DC0073"
+    rand3 = Math.floor(Math.random() * 5);
+    rand4 = Math.floor(Math.random() * 5);
+    let flashSelectPink = `flashcell-${rand3}-${rand4}`;
+    // document.getElementById(flashSelectPink).style.backgroundColor = "#DC0073";
+    document.getElementById(flashSelectPink).classList.add("flash-pink");
     setTimeout(function () {
-      document.getElementById(flashSelectPink).style.backgroundColor = "black";
-    }, 500);
+      document.getElementById(flashSelectPink).classList.remove("flash-pink");
+      // document.getElementById(flashSelectPink).style.backgroundColor = "black";
+    }, 2000);
   }, 2400);
 }
