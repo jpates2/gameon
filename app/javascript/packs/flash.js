@@ -98,8 +98,6 @@ const clickFlashCell = function () {
 
 let rand1, rand2;
 
-
-
 const flashColour = function () {
   let colourTimer = 10;
 
@@ -110,7 +108,8 @@ const flashColour = function () {
     colourTimer -= 1;
     rand1 = Math.floor(Math.random() * 5)
     rand2 = Math.floor(Math.random() * 5)
-    let flashSelectCell = `cell-${rand1}-${rand2}`
+    let flashSelectCell = `flashcell-${rand1}-${rand2}`
+    document.getElementById(flashSelectCell).style.backgroundColor = "red"
     console.log(flashSelectCell);
     console.log(colourTimer);
     // flashSelectCell.style.backgroundColor = "red";
