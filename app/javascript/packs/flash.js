@@ -101,20 +101,30 @@ let rand1, rand2;
 const flashColour = function () {
   let colourTimer = 10;
 
-  const insertFlashColour = setInterval(function() {
+  const insertGreenColour = setInterval(function() {
     if (colourTimer <= 1 ) {
-      clearInterval(insertFlashColour);
+      clearInterval(insertGreenColour);
     }
     colourTimer -= 1;
     rand1 = Math.floor(Math.random() * 5)
     rand2 = Math.floor(Math.random() * 5)
-    let flashSelectCell = `flashcell-${rand1}-${rand2}`
-    document.getElementById(flashSelectCell).style.backgroundColor = "red"
-    console.log(flashSelectCell);
-    console.log(colourTimer);
-    // flashSelectCell.style.backgroundColor = "red";
-    // setTimeout(function () {
-    //   flashSelectCell.style.backgroundColor = "black";
-    // }, 900);
+    let flashSelectGreen = `flashcell-${rand1}-${rand2}`
+    document.getElementById(flashSelectGreen).style.backgroundColor = "#89FC00"
+    setTimeout(function () {
+      document.getElementById(flashSelectGreen).style.backgroundColor = "black";
+    }, 500);
   }, 1000);
+
+  const insertPinkColour = setInterval(function() {
+    if (colourTimer <= 1 ) {
+      clearInterval(insertPinkColour);
+    }
+    rand3 = Math.floor(Math.random() * 5)
+    rand4 = Math.floor(Math.random() * 5)
+    let flashSelectPink = `flashcell-${rand3}-${rand4}`
+    document.getElementById(flashSelectPink).style.backgroundColor = "#DC0073"
+    setTimeout(function () {
+      document.getElementById(flashSelectPink).style.backgroundColor = "black";
+    }, 500);
+  }, 2400);
 }
