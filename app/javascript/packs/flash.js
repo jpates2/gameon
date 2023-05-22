@@ -6,6 +6,7 @@ const flashMsg = document.querySelector(".flash-msg");
 const flashTable = document.querySelector(".flash-table");
 const flashScoreContainer = document.querySelector(".flash-score-container");
 const flashTimerContainer = document.querySelector(".flash-timer-container");
+const flashTableContainer = document.querySelector(".flash-table-container");
 
 let flashTime, flashScore, flashBoard;
 let flashScoreTotal = 0;
@@ -105,7 +106,7 @@ const clickFlashCell = function (e) {
   console.log(flashScoreTotal);
 }
 
-let rand1, rand2;
+let rand1, rand2, rand3, rand4;
 
 const flashColour = function () {
   let colourTimer = 10;
@@ -131,11 +132,9 @@ const flashColour = function () {
     rand3 = Math.floor(Math.random() * 5);
     rand4 = Math.floor(Math.random() * 5);
     let flashSelectPink = `flashcell-${rand3}-${rand4}`;
-    // document.getElementById(flashSelectPink).style.backgroundColor = "#DC0073";
     document.getElementById(flashSelectPink).classList.add("flash-pink");
     setTimeout(function () {
       document.getElementById(flashSelectPink).classList.remove("flash-pink");
-      // document.getElementById(flashSelectPink).style.backgroundColor = "black";
     }, 2000);
   }, 2400);
 }
@@ -146,8 +145,11 @@ const endFlashGame = function () {
 }
 
 const restartFlash = function () {
-  minePlayAgainButton.classList.add("hidden");
-  // startMine();
+  flashPlayAgainButton.classList.add("hidden");
+  flashTimerContainer.innerHTML = "";
+  flashScoreContainer.innerHTML = "";
+  flashTable.innerHTML = "";
+  flashStartMessage();
 }
 
 if (flashPlayAgainButton) {
