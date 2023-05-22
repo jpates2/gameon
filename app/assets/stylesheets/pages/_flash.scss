@@ -58,7 +58,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -16vh;
+  margin-top: -8vh;
 }
 
 .flash-start-msg {
@@ -90,10 +90,9 @@
   font-size: 80px;
 }
 
-.flash-game {
+.flash-game-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  // flex-direction: row;
   width: 80%;
   height: 80%;
 }
@@ -104,4 +103,29 @@
 
 .flash-pink {
   background-color: #DC0073;
+}
+
+.flash-play-again-button {
+  color: #89FC00;
+  font-size: 32px;
+  animation: blink 3s linear infinite;
+  animation-delay: blink 2s;
+  margin-top: 4vh;
+}
+
+.flash-play-again-button:hover {
+  color: white;
+  cursor: pointer;
+}
+
+@keyframes blink{
+  0%{opacity: 0;}
+  50%{opacity: .5;}
+  100%{opacity: 1;}
+}
+
+.flash-play-again-container {
+  text-align: center;
+  width: 80vw;
+  margin-top: 4vh;
 }

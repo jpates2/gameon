@@ -50,6 +50,7 @@ function flashStartMessage() {
           clearInterval(flashCountdown);
           for (let i = 0; i < flashBoard.length; i++) {
             flashBoard[i].style.backgroundColor = "black";
+            endFlashGame();
           }
         }
         flashTime -= 1;
@@ -118,10 +119,8 @@ const flashColour = function () {
     rand2 = Math.floor(Math.random() * 5)
     let flashSelectGreen = `flashcell-${rand1}-${rand2}`
     document.getElementById(flashSelectGreen).classList.add("flash-green")
-    // document.getElementById(flashSelectGreen).style.backgroundColor = "#89FC00"
     setTimeout(function () {
     document.getElementById(flashSelectGreen).classList.remove("flash-green")
-    // document.getElementById(flashSelectGreen).style.backgroundColor = "black";
     }, 2000);
   }, 1000);
 
@@ -139,4 +138,18 @@ const flashColour = function () {
       // document.getElementById(flashSelectPink).style.backgroundColor = "black";
     }, 2000);
   }, 2400);
+}
+
+const endFlashGame = function () {
+  flashPlayAgainButton.classList.remove("hidden");
+
+}
+
+const restartFlash = function () {
+  minePlayAgainButton.classList.add("hidden");
+  // startMine();
+}
+
+if (flashPlayAgainButton) {
+  flashPlayAgainButton.addEventListener("click", restartFlash)
 }
