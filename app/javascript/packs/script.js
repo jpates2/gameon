@@ -3,14 +3,21 @@ const gamesLaunchButton = document.querySelector(".games-launch-button");
 const launchGames = function () {
   window.location.href = "/games";
   // reload();
+
+  // window.addEventListener("popstate", (event) => {
+  //   window.location.reload();
+  // })
 }
 
 // const reload = function () {
   // window.location.reload();
 // }
 
+// document.addEventListener('DOMContentLoaded', function () {
+// });
+
 if (gamesLaunchButton) {
-  gamesLaunchButton.addEventListener("click", launchGames)
+  gamesLaunchButton.addEventListener("click", launchGames);
 }
 
 const hangmanWindow = document.querySelector(".hangman-window");
@@ -70,7 +77,9 @@ const closeFlashWindow = function() {
 const openFlashWindow = function() {
   flashWindow.classList.remove("hidden");
   overlayFlash.classList.remove("hidden");
+
 }
+
 if (showFlash) {
   showFlash.addEventListener("click", openFlashWindow);
 }
@@ -111,6 +120,7 @@ const closeOxWindow = function() {
 const openOxWindow = function() {
   oxWindow.classList.remove("hidden");
   overlayOx.classList.remove("hidden");
+  // window.location.href.reload();
 }
 
 if (showOx) {
