@@ -7,7 +7,7 @@ const flashTable = document.querySelector(".flash-table");
 const flashScoreContainer = document.querySelector(".flash-score-container");
 const flashTimerContainer = document.querySelector(".flash-timer-container");
 
-let flashTime, flashScore;
+let flashTime, flashScore, flashBoard;
 let flashScoreTotal = 0;
 
 const startFlash = function() {
@@ -48,6 +48,9 @@ function flashStartMessage() {
       const flashCountdown = setInterval(function() {
         if(flashTime <= 1) {
           clearInterval(flashCountdown);
+          for (let i = 0; i < flashBoard.length; i++) {
+            flashBoard[i].style.backgroundColor = "black";
+          }
         }
         flashTime -= 1;
         flashTimer.textContent = flashTime;
@@ -78,7 +81,7 @@ function flashStartMessage() {
       flashTable.appendChild(row);
     }
 
-  const flashBoard = document.querySelectorAll(".flash-board-box");
+  flashBoard = document.querySelectorAll(".flash-board-box");
 
   for (let i = 0; i < flashBoard.length; i++) {
     flashCurrent = flashBoard[i];
