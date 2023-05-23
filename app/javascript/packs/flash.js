@@ -40,9 +40,9 @@ function flashStartMessage() {
 
       flashTimerContainer.insertAdjacentHTML("afterbegin",
       `<p class = "flash-timer-header">TIMER</p>
-      <p class = "flash-timer">10</p>`)
+      <p class = "flash-timer">30</p>`)
 
-      flashTime = 10;
+      flashTime = 30;
       const flashTimer = document.querySelector(".flash-timer");
       let flashScore = document.querySelector(".flash-score");
 
@@ -109,7 +109,7 @@ const clickFlashCell = function (e) {
 let rand1, rand2, rand3, rand4;
 
 const flashColour = function () {
-  let colourTimer = 10;
+  let colourTimer = 30;
 
   const insertGreenColour = setInterval(function() {
     if (colourTimer <= 1 ) {
