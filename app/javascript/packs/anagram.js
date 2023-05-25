@@ -26,7 +26,13 @@ const anagramWordbank = {
   listen: "silent",
   players: "parsley",
   deductions: "discounted",
-  resistance: "ancestries"
+  resistance: "ancestries",
+  stressed: "desserts",
+  charm: "march",
+  heart: "earth",
+  resentful: "flustered",
+  credition: "direction",
+  resigned: "redesign"
 };
 
 let anagramPair;
