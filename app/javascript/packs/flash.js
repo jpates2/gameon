@@ -51,6 +51,7 @@ function flashStartMessage() {
           clearInterval(flashCountdown);
           for (let i = 0; i < flashBoard.length; i++) {
             flashBoard[i].style.backgroundColor = "black";
+            flashScoreContainer.style.color = "#DC0073";
             endFlashGame();
           }
         }
@@ -149,6 +150,7 @@ const restartFlash = function () {
   flashTimerContainer.innerHTML = "";
   flashScoreContainer.innerHTML = "";
   flashTable.innerHTML = "";
+  flashScoreContainer.style.color = "white";
   flashStartMessage();
 }
 
