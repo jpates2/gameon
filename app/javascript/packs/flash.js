@@ -142,7 +142,6 @@ const flashColour = function () {
 
 const endFlashGame = function () {
   flashPlayAgainButton.classList.remove("hidden");
-
 }
 
 const restartFlash = function () {

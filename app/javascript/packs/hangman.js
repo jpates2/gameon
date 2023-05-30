@@ -28,10 +28,6 @@ const startHangman = function() {
   displayHangmanWord();
   displayLives();
   addHangmanEvents();
-  // generateLetters();
-  // hangmanSecretWord = Array(randomHangman.length).fill("__");
-  // hangmanWord.innerHTML = hangmanSecretWord.join("  ");
-  // hangmanWord.innerHTML = "_   ".repeat(randomHangman.length);
 }
 
 if (hangmanPlayButton) {
@@ -122,18 +118,6 @@ function hangmanLetterPick(chosenHangmanLetter) {
 
 
 const playHangmanAgain = function() {
-  // console.log("test2");
-  // addHangmanEvents();
-  // hangmanPlayAgainButton.classList.add("hidden");
-  // hangmanWord.innerText = "";
-  // document.querySelector(".hangman-game-result").remove();
-  // generateLetters();
-  // hangmanLivesStart = 6;
-  // displayLives();
-  // incorrectLetters = [];
-  // correctLetters = [];
-  // randomHangman = hangmanWordbank[Math.floor(Math.random() * hangmanWordbank.length)].toUpperCase();
-  // displayHangmanWord();
   window.location.reload();
 }
 
