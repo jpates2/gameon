@@ -110,7 +110,6 @@ function hangmanLetterPick(chosenHangmanLetter) {
     (`alphabet-letter-${chosenHangmanLetter.toLowerCase()}`)
   } else {
     hangmanLives.innerHTML = "";
-    // hangmanLivesStart.classList.add("hidden");
     hangmanLives.insertAdjacentHTML("afterend", `<div class = hangman-game-result-container><p class = "hangman-game-lose">YOU LOSE!</p></div>`)
     hangmanPlayAgainButton.classList.remove("hidden");
   }
@@ -153,77 +152,3 @@ hangmanAlphabetLetterX.addEventListener("click", function () {hangmanLetterPick(
 hangmanAlphabetLetterY.addEventListener("click", function () {hangmanLetterPick("Y")});
 hangmanAlphabetLetterZ.addEventListener("click", function () {hangmanLetterPick("Z")});
 }
-
-// const hangmanAlphabetLetter = document.querySelector(`.hangman-letter-${letter}`);
-
-// const hangmanAlphabetLetter = Array.from(document.querySelectorAll(".hangman-alphabet-letter"));
-
-// attempt one
-// const hangmanLetterPick = function() {
-//   const randomHangmanArray = randomHangman.split("");
-//   for (i = 0; i < randomHangmanArray.length; i++) {
-//     for (j = 0; j < hangmanAlphabetLetter.length; j++) {
-//       if (randomHangmanArray[i].toUpperCase() === hangmanAlphabetLetter[j].innerText) {
-//         console.log(true, randomHangmanArray[i].toUpperCase());
-//         console.log(true, hangmanAlphabetLetter[j].innerText);
-//         // randomHangmanArray.splice(i);
-//         // randomHangmanArray.slice(i, 0, hangmanAlphabetLetter.innerText);
-//       } else {
-//         console.log(false, randomHangmanArray[i].toUpperCase());
-//         console.log(false, hangmanAlphabetLetter[j].innerText);
-//       }
-//     }
-//   }
-//   console.log("lettercheck");
-// }
-
-
-
-//attempt two
-// let hangmanAlphabetLetter = "G";
-// let index;
-
-// const hangmanLetterPick = function() {
-//   console.log(hangmanAlphabetLetter.innerText);
-//   const randomHangmanArray = randomHangman.split("");
-//   if (randomHangmanArray.includes(hangmanAlphabetLetter.innerText)) {
-//     console.log(`hangmanAlphabetLetter${hangmanAlphabetLetter.innerText}`);
-//     for (i = 0; i < randomHangmanArray.length; i++) {
-//       if (randomHangmanArray[i] === hangmanAlphabetLetter.innerText) {
-//         console.log(true, randomHangmanArray[i]);
-//         console.log(true, hangmanAlphabetLetter.innerText);
-//         index = randomHangmanArray.indexOf(i)
-//         hangmanSecretWord[index] = hangmanAlphabetLetter.innerText;
-//         console.log(hangmanSecretWord);
-//         // randomHangmanArray.splice(i);
-//         // randomHangmanArray.slice(i, 0, hangmanAlphabetLetter.innerText);
-//       }
-//     }
-//   } else {
-//     // hangmanAlphabetLetter.classList.add("hangman-alphabet-letter-incorrect")
-//     console.log(false, hangmanAlphabetLetter.innerText);
-//   }
-//   hangmanAlphabetLetter = "";
-// }
-
-// for (let i = 0; i < hangmanAlphabetLetter.length; i++)
-//   hangmanAlphabetLetter[i].addEventListener("click", hangmanLetterPick);
-// console.log(hangmanAlphabetLetter);
-
-// if (hangmanAlphabetLetterF) {
-//   hangmanAlphabetLetterF.addEventListener("click", hangmanLetterPick);
-// }
-
-// if (hangmanAlphabetLetterG) {
-//   hangmanAlphabetLetterG.addEventListener("click", hangmanLetterPick);
-// }
-
-// if (hangmanAlphabetLetterH) {
-//   hangmanAlphabetLetterH.addEventListener("click", hangmanLetterPick);
-// }
-
-// if (hangmanAlphabetLetterI) {
-//   hangmanAlphabetLetterI.addEventListener("click", hangmanLetterPick);
-// }
-
-// console.log(`hangmanAlphabetLetter${hangmanAlphabetLetter.innerText}`);
