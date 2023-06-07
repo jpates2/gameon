@@ -109,7 +109,6 @@ const pigHold = function () {
     pigDice.classList.add("pig-dice");
     pigShowDice.classList.remove("hidden");
     pigPlayAgainButton.classList.remove("hidden");
-    // pigBtnRoll.classList.add
   } else {
     switchPlayer();
   }
